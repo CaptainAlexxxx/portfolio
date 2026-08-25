@@ -96,6 +96,8 @@ figcaption{
 .grid2{display:grid; grid-template-columns:1fr 1fr; gap:26px}
 .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
 .grid2 figure,.grid3 figure{margin-bottom:0}
+.phone figure{max-width:480px; margin-inline:auto; width:100%}
+.phone img{image-rendering:auto}
 
 /* ---------- before/after slider ---------- */
 .ba{margin:0 0 12px}
@@ -106,7 +108,7 @@ figcaption{
 }
 .ba-frame img{display:block; width:100%; height:auto}
 .ba-top{position:absolute; inset:0; width:50%; overflow:hidden}
-.ba-top img{width:auto; height:100%; max-width:none}
+.ba-top img{height:auto; max-width:none}
 .ba-handle{
   position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--accent);
   transform:translateX(-1px); pointer-events:none;
@@ -356,7 +358,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         an honest answer instead of silence.</li>
     </ul>
 
-    <div class="grid2">
+    <div class="grid3 phone">
       <figure>
         <img src="images/bot-ticket.jpg" alt="Ticket card in the operator group and the closing confirmation" loading="lazy">
         <figcaption>Ticket card in the operator group, and closing.</figcaption>
@@ -365,12 +367,11 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         <img src="images/bot-broadcast.jpg" alt="Three-step broadcast wizard in Telegram" loading="lazy">
         <figcaption>Broadcast wizard — recipients, message, schedule.</figcaption>
       </figure>
+      <figure>
+        <img src="images/bot-schedule.jpg" alt="Working schedule management and support rating buttons" loading="lazy">
+        <figcaption>Schedule editor, and the 1–5 satisfaction score.</figcaption>
+      </figure>
     </div>
-
-    <figure style="margin-top:26px">
-      <img src="images/bot-schedule.jpg" alt="Working schedule management and support rating buttons" loading="lazy">
-      <figcaption>Schedule management with date overrides, and the 1–5 satisfaction score.</figcaption>
-    </figure>
   </section>
 
 </main>
@@ -393,7 +394,7 @@ document.querySelectorAll('[data-ba]').forEach(function(ba){
   var handle= ba.querySelector('.ba-handle');
   var range = ba.querySelector('input[type=range]');
 
-  function sizeTop(){ topImg.style.height = frame.offsetHeight + 'px'; }
+  function sizeTop(){ topImg.style.width = frame.offsetWidth + 'px'; topImg.style.height = 'auto'; }
   function set(pct){
     pct = Math.max(0, Math.min(100, pct));
     top.style.width = pct + '%';
