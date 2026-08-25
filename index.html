@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oleksii Ilienko — selected work</title>
+<meta name="description" content="Selected work of a PHP/Laravel developer: customs clearance, shipment tracking, integrations and legacy refactoring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E7EAEC;
+  --card:#FFFFFF;
+  --ink:#14161A;
+  --mute:#666C73;
+  --line:#C6CBD0;
+  --accent:#B32F27;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+
+/* ---------- header ---------- */
+.masthead{border-bottom:1px solid var(--line); padding:56px 0 28px}
+.masthead h1{
+  font-family:"Archivo",Impact,sans-serif; font-weight:800;
+  font-size:clamp(34px,6.2vw,62px); line-height:.98; letter-spacing:-.025em;
+  margin:0 0 14px;
+}
+.masthead .role{
+  font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 22px;
+}
+.masthead p.lede{max-width:60ch; margin:0 0 26px; font-size:17px}
+.contacts{
+  font-family:"IBM Plex Mono",monospace; font-size:13px;
+  display:flex; flex-wrap:wrap; gap:8px 20px; margin:0; padding:0; list-style:none;
+}
+.contacts a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line)}
+.contacts a:hover{color:var(--accent); border-color:var(--accent)}
+
+/* ---------- manifest index ---------- */
+.manifest{border-bottom:1px solid var(--line); padding:20px 0}
+.manifest ol{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:2px 24px;
+}
+.manifest a{
+  display:flex; justify-content:space-between; gap:12px;
+  font-family:"IBM Plex Mono",monospace; font-size:13px;
+  color:var(--mute); text-decoration:none; padding:6px 0;
+  border-bottom:1px solid transparent;
+}
+.manifest a:hover{color:var(--ink); border-color:var(--ink)}
+.manifest a span:last-child{color:var(--accent)}
+
+/* ---------- projects ---------- */
+.project{padding:64px 0 8px; border-bottom:1px solid var(--line)}
+.project:last-of-type{border-bottom:0}
+.project h2{
+  font-family:"Archivo",sans-serif; font-weight:800;
+  font-size:clamp(24px,3.6vw,36px); letter-spacing:-.02em; margin:0 0 10px;
+}
+.specline{
+  font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--mute);
+  border-top:2px solid var(--ink); border-bottom:1px solid var(--line);
+  padding:8px 0; margin:0 0 26px;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:4px 24px;
+}
+.specline b{color:var(--ink); font-weight:500}
+.project p.intro{max-width:66ch; margin:0 0 20px}
+.did{margin:0 0 32px; padding:0; list-style:none; max-width:68ch}
+.did li{padding-left:22px; position:relative; margin-bottom:9px}
+.did li::before{
+  content:"—"; position:absolute; left:0; color:var(--accent);
+  font-family:"IBM Plex Mono",monospace;
+}
+.did b{font-weight:600}
+
+/* ---------- shots ---------- */
+figure{margin:0 0 26px; background:var(--card); border:1px solid var(--line)}
+figure img{display:block; width:100%; height:auto}
+figcaption{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--mute);
+  padding:9px 12px; border-top:1px solid var(--line);
+}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:26px}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
+.grid2 figure,.grid3 figure{margin-bottom:0}
+
+/* ---------- before/after slider ---------- */
+.ba{margin:0 0 12px}
+.ba-frame{
+  position:relative; overflow:hidden; user-select:none;
+  border:1px solid var(--line); background:var(--card); line-height:0;
+  touch-action:pan-y;
+}
+.ba-frame img{display:block; width:100%; height:auto}
+.ba-top{position:absolute; inset:0; width:50%; overflow:hidden}
+.ba-top img{width:auto; height:100%; max-width:none}
+.ba-handle{
+  position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--accent);
+  transform:translateX(-1px); pointer-events:none;
+}
+.ba-handle::after{
+  content:"◀ ▶"; position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  background:var(--accent); color:#fff; font-family:"IBM Plex Mono",monospace;
+  font-size:11px; padding:5px 9px; white-space:nowrap; border-radius:2px;
+}
+.ba-tag{
+  position:absolute; top:10px; font-family:"IBM Plex Mono",monospace; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; background:var(--ink); color:#fff;
+  padding:4px 8px; border-radius:2px;
+}
+.ba-tag.l{left:10px}
+.ba-tag.r{right:10px; background:var(--accent)}
+.ba input[type=range]{width:100%; margin:10px 0 0; accent-color:var(--accent)}
+.ba-note{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--mute); margin:0 0 30px}
+
+/* ---------- footer ---------- */
+.foot{padding:44px 0 70px; font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--mute)}
+.foot a{color:var(--ink)}
+.tag-closed{
+  display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:11px;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--mute);
+  border:1px solid var(--line); padding:3px 8px; margin-left:10px; vertical-align:middle;
+}
+.tag-open{
+  display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:11px;
+  letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--accent);
+  padding:4px 9px; margin-left:10px; vertical-align:middle; text-decoration:none;
+}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+
+@media (max-width:760px){
+  .grid2,.grid3{grid-template-columns:1fr}
+  .masthead{padding:36px 0 22px}
+  .project{padding:44px 0 8px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="role">Oleksii Ilienko · PHP / Laravel developer · Kyiv</p>
+    <h1>Customs, cargo<br>and the software<br>that moves it.</h1>
+    <p class="lede">Three years of commercial PHP. For the last year I was the only developer on two production
+      B2B products in customs clearance and logistics, working directly with the CTO — building them from the
+      data model up to the interface. Below is what those products actually look like.</p>
+    <ul class="contacts">
+      <li><a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
+      <li><a href="https://t.me/CaptainAlexxx">Telegram</a></li>
+      <li><a href="https://github.com/CaptainAlexxxx">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/oleksii-ilienko-laravel">LinkedIn</a></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="manifest">
+  <div class="wrap">
+    <ol>
+      <li><a href="#procargo"><span>ProCargo</span><span>declarations &amp; tracking</span></a></li>
+      <li><a href="#ics"><span>ICS Gateway</span><span>multi-tenant</span></a></li>
+      <li><a href="#site"><span>Public site</span><span>WordPress + Laravel</span></a></li>
+      <li><a href="#bot"><span>Support bot</span><span>open source</span></a></li>
+    </ol>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ================= PROCARGO ================= -->
+  <section class="project" id="procargo">
+    <h2>ProCargo <span class="tag-closed">closed source</span></h2>
+    <div class="specline">
+      <div><b>Role</b> — sole developer</div>
+      <div><b>Stack</b> — Laravel 10, Inertia, Vue 3</div>
+      <div><b>Period</b> — 2025–2026</div>
+      <div><b>Team</b> — myself + CTO</div>
+    </div>
+
+    <p class="intro">A platform for customs declarations and shipment tracking: registers, parcels, depot cash
+      desks, document generation, and integrations with the Ukrainian customs API, the Cashalot fiscal service
+      and internal ERP and OMS/WMS systems.</p>
+
+    <ul class="did">
+      <li><b>Cut background job execution time roughly 10x.</b> Replaced <code class="mono">dispatchAfterResponse</code>,
+        which silently failed under Nginx/PHP-FPM, removed payload bloat from <code class="mono">Bus::chain</code>
+        by passing shipment IDs instead of 192+ serialized job objects, and fixed a cache-lock deadlock.</li>
+      <li><b>Removed N+1 queries in the KPI dashboard</b>, cutting report load time by two orders of magnitude.</li>
+      <li><b>Rewrote a core service from scratch</b> after years of accumulated nested conditionals, and
+        consolidated two legacy PDF helpers (900+ and 870+ lines) into one service through a staged 15-step
+        migration, with no production downtime.</li>
+      <li><b>Built the integrations</b> — customs API over SOAP with qualified e-signatures, Cashalot, ERP and
+        OMS/WMS — plus a feature flag switching between two customs modes for instant rollback in production.</li>
+      <li><b>Rebuilt the interface</b>: two full redesigns, role-based admin panel, light and dark themes,
+        localisation, Excel and PDF generation.</li>
+    </ul>
+
+    <figure>
+      <img src="images/procargo-registers.jpg" alt="Shipment registers table with filters, statuses and document actions" loading="lazy">
+      <figcaption>Shipment registers — 2 064 records, filtered by AWB, track code, manifest, client and depot.</figcaption>
+    </figure>
+
+    <div class="grid2">
+      <figure>
+        <img src="images/procargo-cash.jpg" alt="Depot cash desk with balance totals and a cash operation form" loading="lazy">
+        <figcaption>Depot cash desk — received, issued, current balance.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/procargo-receipts.jpg" alt="Cashier receipts list with filters by operation type, status and date" loading="lazy">
+        <figcaption>Cashier receipts, filtered by type, status and period.</figcaption>
+      </figure>
+    </div>
+
+    <figure style="margin-top:26px">
+      <img src="images/procargo-permissions.jpg" alt="Permission matrix with granular permission keys per module" loading="lazy">
+      <figcaption>Role editor — granular permissions per module (own / managed / all scopes).</figcaption>
+    </figure>
+
+    <h3 class="mono" style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:38px 0 14px">
+      Redesign — drag to compare</h3>
+
+    <div class="ba" data-ba>
+      <div class="ba-frame">
+        <img src="images/redesign-after.jpg" alt="Shipments list after the redesign">
+        <div class="ba-top"><img src="images/redesign-before.jpg" alt="Shipments list before the redesign"></div>
+        <div class="ba-handle"></div>
+        <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+      </div>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare the shipments list before and after the redesign">
+    </div>
+    <p class="ba-note">Shipments list: dense button clusters replaced with icon actions, readable type scale, real pagination.</p>
+
+    <div class="ba" data-ba>
+      <div class="ba-frame">
+        <img src="images/redesign2-after.jpg" alt="Flight file screen after the redesign">
+        <div class="ba-top"><img src="images/redesign2-before.jpg" alt="Flight file screen before the redesign"></div>
+        <div class="ba-handle"></div>
+        <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+      </div>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare the flight file screen before and after the redesign">
+    </div>
+    <p class="ba-note">Flight file: consistent navigation, one accent colour instead of four, empty state that says what to do next.</p>
+  </section>
+
+  <!-- ================= ICS ================= -->
+  <section class="project" id="ics">
+    <h2>ICS — customs gateway <span class="tag-closed">closed source</span></h2>
+    <div class="specline">
+      <div><b>Role</b> — sole developer</div>
+      <div><b>Stack</b> — Laravel 12, Filament, Vue 3</div>
+      <div><b>Period</b> — 2026</div>
+      <div><b>Scope</b> — multi-tenant SaaS</div>
+    </div>
+
+    <p class="intro">A gateway between brokers and the Ukrainian customs system. Each tenant gets an isolated
+      workspace with its own branding, users and shipment flow.</p>
+
+    <ul class="did">
+      <li><b>Built multi-tenancy with per-tenant branding</b> — brand and accent colours, text or SVG logo, live
+        preview, applied across the whole interface.</li>
+      <li><b>Two integration modes behind a feature flag</b>: through the gateway, or direct submission with a
+        qualified e-signature. Switching takes one toggle, which made production rollback instant.</li>
+      <li><b>Import and export of shipment registers</b>, project assembly from free shipments, and customs
+        decision handling — refusals and requirements surfaced on the dashboard.</li>
+    </ul>
+
+    <div class="grid2">
+      <figure>
+        <img src="images/ics-dashboard.jpg" alt="Dashboard with quick actions, counters and a shipments chart" loading="lazy">
+        <figcaption>Dashboard — unread customs decisions, counters, 7-day shipment chart.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ics-branding.jpg" alt="Tenant branding settings with colour pickers and logo preview" loading="lazy">
+        <figcaption>Tenant branding — colours, logo type, live preview.</figcaption>
+      </figure>
+    </div>
+
+    <figure style="margin-top:26px">
+      <img src="images/ics-shipments.jpg" alt="Free shipments import table with filters and bulk actions" loading="lazy">
+      <figcaption>Free shipments — bulk selection, combining into a project, OMS and customs status columns.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ================= SITE ================= -->
+  <section class="project" id="site">
+    <h2>ProCargo public site <span class="tag-closed">closed source</span></h2>
+    <div class="specline">
+      <div><b>Role</b> — sole developer</div>
+      <div><b>Stack</b> — WordPress + Laravel</div>
+      <div><b>Period</b> — 2025</div>
+      <div><b>Scope</b> — marketing + app entry</div>
+    </div>
+
+    <p class="intro">The public site runs on WordPress so the team can edit content without a developer, while
+      logged-in users move into the Laravel application without noticing the seam — shared session, shared data,
+      one visual language.</p>
+
+    <ul class="did">
+      <li><b>Built the front end from scratch</b>, including a tariff calculator and country-by-country pricing
+        tables fed from the application.</li>
+      <li><b>Kept shipment creation inside the same flow</b>, so a visitor can go from the landing page to a
+        submitted shipment without a context switch.</li>
+      <li><b>Bilingual content</b> — Ukrainian and English across both the site and the application.</li>
+    </ul>
+
+    <div class="grid3">
+      <figure>
+        <img src="images/wp-home.jpg" alt="Landing page with hero image and quick cargo actions" loading="lazy">
+        <figcaption>Landing page.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/wp-tariffs.jpg" alt="Shipping tariffs page with a price calculator" loading="lazy">
+        <figcaption>Tariffs and calculator.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/wp-create-shipment.jpg" alt="Simplified shipment creation form" loading="lazy">
+        <figcaption>Shipment creation.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= BOT ================= -->
+  <section class="project" id="bot">
+    <h2>Telegram support bot
+      <a class="tag-open" href="https://github.com/CaptainAlexxxx">source on GitHub</a></h2>
+    <div class="specline">
+      <div><b>Role</b> — sole developer</div>
+      <div><b>Stack</b> — Laravel 12, Nutgram</div>
+      <div><b>Period</b> — 2026</div>
+      <div><b>Scope</b> — internal support desk</div>
+    </div>
+
+    <p class="intro">Support used to live in a shared chat where requests were lost. The bot turns every request
+      into a tracked ticket in an operator group, with a working schedule, broadcasts and a satisfaction score.</p>
+
+    <ul class="did">
+      <li><b>Ticket lifecycle</b> — a request opens a thread in the operator group with the client's data
+        attached; either side can close it, and the client is then asked to rate the support from 1 to 5.</li>
+      <li><b>Multi-step broadcast wizard</b> — recipient group, message with optional media, date and time, then
+        a preview before scheduling. Cancellable at any step.</li>
+      <li><b>Working schedule</b> — weekday hours plus date overrides for holidays, so out-of-hours requests get
+        an honest answer instead of silence.</li>
+    </ul>
+
+    <div class="grid2">
+      <figure>
+        <img src="images/bot-ticket.jpg" alt="Ticket card in the operator group and the closing confirmation" loading="lazy">
+        <figcaption>Ticket card in the operator group, and closing.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/bot-broadcast.jpg" alt="Three-step broadcast wizard in Telegram" loading="lazy">
+        <figcaption>Broadcast wizard — recipients, message, schedule.</figcaption>
+      </figure>
+    </div>
+
+    <figure style="margin-top:26px">
+      <img src="images/bot-schedule.jpg" alt="Working schedule management and support rating buttons" loading="lazy">
+      <figcaption>Schedule management with date overrides, and the 1–5 satisfaction score.</figcaption>
+    </figure>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>ProCargo, ICS and the public site are commercial products — the code is closed, the screenshots are from
+      test environments and contain no client data. The support bot is open source.</p>
+    <p>Oleksii Ilienko · <a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a> ·
+       <a href="https://github.com/CaptainAlexxxx">GitHub</a> ·
+       <a href="https://www.linkedin.com/in/oleksii-ilienko-laravel">LinkedIn</a></p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-ba]').forEach(function(ba){
+  var frame = ba.querySelector('.ba-frame');
+  var top   = ba.querySelector('.ba-top');
+  var topImg= top.querySelector('img');
+  var handle= ba.querySelector('.ba-handle');
+  var range = ba.querySelector('input[type=range]');
+
+  function sizeTop(){ topImg.style.height = frame.offsetHeight + 'px'; }
+  function set(pct){
+    pct = Math.max(0, Math.min(100, pct));
+    top.style.width = pct + '%';
+    handle.style.left = pct + '%';
+    if (range.value != pct) range.value = pct;
+  }
+  function fromEvent(e){
+    var r = frame.getBoundingClientRect();
+    var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+    set(x / r.width * 100);
+  }
+
+  range.addEventListener('input', function(){ set(+range.value); });
+
+  var dragging = false;
+  frame.addEventListener('mousedown', function(e){ dragging = true; fromEvent(e); e.preventDefault(); });
+  window.addEventListener('mousemove', function(e){ if (dragging) fromEvent(e); });
+  window.addEventListener('mouseup', function(){ dragging = false; });
+  frame.addEventListener('touchstart', function(e){ fromEvent(e); }, {passive:true});
+  frame.addEventListener('touchmove',  function(e){ fromEvent(e); }, {passive:true});
+
+  window.addEventListener('resize', sizeTop);
+  if (frame.querySelector('img').complete) sizeTop();
+  frame.querySelectorAll('img').forEach(function(i){ i.addEventListener('load', sizeTop); });
+  set(50);
+});
+</script>
+</body>
+</html>
