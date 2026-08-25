@@ -107,8 +107,8 @@ figcaption{
   touch-action:pan-y;
 }
 .ba-frame img{display:block; width:100%; height:auto}
-.ba-top{position:absolute; inset:0; width:50%; overflow:hidden}
-.ba-top img{height:auto; max-width:none}
+.ba-top{position:absolute; inset:0; clip-path:inset(0 50% 0 0)}
+.ba-top img{width:100%; height:auto; display:block}
 .ba-handle{
   position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--accent);
   transform:translateX(-1px); pointer-events:none;
@@ -120,7 +120,7 @@ figcaption{
   font-size:11px; padding:5px 9px; white-space:nowrap; border-radius:2px;
 }
 .ba-tag{
-  position:absolute; top:10px; font-family:"IBM Plex Mono",monospace; font-size:11px;
+  position:absolute; bottom:10px; font-family:"IBM Plex Mono",monospace; font-size:11px;
   letter-spacing:.1em; text-transform:uppercase; background:var(--ink); color:#fff;
   padding:4px 8px; border-radius:2px;
 }
@@ -338,7 +338,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <!-- ================= BOT ================= -->
   <section class="project" id="bot">
     <h2>Telegram support bot
-      <a class="tag-open" href="https://github.com/CaptainAlexxxx">source on GitHub</a></h2>
+      <a class="tag-open" href="https://github.com/CaptainAlexxxx/laravel-telegram-helpdesk">source on GitHub</a></h2>
     <div class="specline">
       <div><b>Role</b> — sole developer</div>
       <div><b>Stack</b> — Laravel 12, Nutgram</div>
@@ -390,14 +390,12 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 document.querySelectorAll('[data-ba]').forEach(function(ba){
   var frame = ba.querySelector('.ba-frame');
   var top   = ba.querySelector('.ba-top');
-  var topImg= top.querySelector('img');
   var handle= ba.querySelector('.ba-handle');
   var range = ba.querySelector('input[type=range]');
 
-  function sizeTop(){ topImg.style.width = frame.offsetWidth + 'px'; topImg.style.height = 'auto'; }
   function set(pct){
     pct = Math.max(0, Math.min(100, pct));
-    top.style.width = pct + '%';
+    top.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
     handle.style.left = pct + '%';
     if (range.value != pct) range.value = pct;
   }
@@ -416,9 +414,6 @@ document.querySelectorAll('[data-ba]').forEach(function(ba){
   frame.addEventListener('touchstart', function(e){ fromEvent(e); }, {passive:true});
   frame.addEventListener('touchmove',  function(e){ fromEvent(e); }, {passive:true});
 
-  window.addEventListener('resize', sizeTop);
-  if (frame.querySelector('img').complete) sizeTop();
-  frame.querySelectorAll('img').forEach(function(i){ i.addEventListener('load', sizeTop); });
   set(50);
 });
 </script>
