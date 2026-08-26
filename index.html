@@ -232,31 +232,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       <figcaption>Role editor — granular permissions per module (own / managed / all scopes).</figcaption>
     </figure>
 
-    <h3 class="mono" style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:38px 0 14px">
-      Redesign — drag to compare</h3>
-
-    <div class="ba" data-ba>
-      <div class="ba-frame">
-        <img src="images/redesign-after.jpg" alt="Shipments list after the redesign">
-        <div class="ba-top"><img src="images/redesign-before.jpg" alt="Shipments list before the redesign"></div>
-        <div class="ba-handle"></div>
-        <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
-      </div>
-      <input type="range" min="0" max="100" value="50" aria-label="Compare the shipments list before and after the redesign">
-    </div>
-    <p class="ba-note">Shipments list: dense button clusters replaced with icon actions, readable type scale, real pagination.</p>
-
-    <div class="ba" data-ba>
-      <div class="ba-frame">
-        <img src="images/redesign2-after.jpg" alt="Flight file screen after the redesign">
-        <div class="ba-top"><img src="images/redesign2-before.jpg" alt="Flight file screen before the redesign"></div>
-        <div class="ba-handle"></div>
-        <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
-      </div>
-      <input type="range" min="0" max="100" value="50" aria-label="Compare the flight file screen before and after the redesign">
-    </div>
-    <p class="ba-note">Flight file: consistent navigation, one accent colour instead of four, empty state that says what to do next.</p>
-  </section>
+</section>
 
   <!-- ================= ICS ================= -->
   <section class="project" id="ics">
@@ -278,6 +254,8 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         qualified e-signature. Switching takes one toggle, which made production rollback instant.</li>
       <li><b>Import and export of shipment registers</b>, project assembly from free shipments, and customs
         decision handling — refusals and requirements surfaced on the dashboard.</li>
+      <li><b>Full light and dark themes, Ukrainian and English</b> across every screen, switchable from the
+        header and remembered per user.</li>
     </ul>
 
     <div class="grid2">
@@ -295,7 +273,34 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       <img src="images/ics-shipments.jpg" alt="Free shipments import table with filters and bulk actions" loading="lazy">
       <figcaption>Free shipments — bulk selection, combining into a project, OMS and customs status columns.</figcaption>
     </figure>
-  </section>
+
+    <h3 class="mono" style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:38px 0 14px">
+      Redesign — drag to compare</h3>
+
+    <div class="ba" data-ba>
+      <div class="ba-frame">
+        <img src="images/redesign-manifest-after.jpg" alt="Customs request screen after the redesign, grouped into cards">
+        <div class="ba-top"><img src="images/redesign-manifest-before.jpg" alt="Customs request screen before the redesign, with competing button colours"></div>
+        <div class="ba-handle"></div>
+        <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+      </div>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare the customs request screen before and after the redesign">
+    </div>
+    <p class="ba-note">Customs request screen. Same data, regrouped into cards: request history out of the middle of the form, four competing button colours down to one accent, taxes and HS-code warnings in their own block.</p>
+
+    <div class="ba" data-ba>
+      <div class="ba-frame">
+        <img src="images/redesign-roles-after.jpg" alt="Role editor after the redesign, with roles on the left and grouped permissions on the right">
+        <div class="ba-top"><img src="images/redesign-roles-before.jpg" alt="Permissions list before the redesign, a flat table of raw keys"></div>
+        <div class="ba-handle"></div>
+        <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+      </div>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare the permission editor before and after the redesign">
+    </div>
+    <p class="ba-note">Permissions. A flat table of raw keys with a per-row Edit button became a role editor: roles on the left, permissions grouped by module with readable labels and their keys underneath, and a count per group.</p>
+
+    <p class="ba-note">Both pairs are the light theme — the screenshots above are the same product in dark.</p>
+</section>
 
   <!-- ================= SITE ================= -->
   <section class="project" id="site">
@@ -316,7 +321,8 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         tables fed from the application.</li>
       <li><b>Kept shipment creation inside the same flow</b>, so a visitor can go from the landing page to a
         submitted shipment without a context switch.</li>
-      <li><b>Bilingual content</b> — Ukrainian and English across both the site and the application.</li>
+      <li><b>Bilingual content and both themes</b> — Ukrainian and English, light and dark, consistent
+        across the site and the application.</li>
     </ul>
 
     <div class="grid3">
