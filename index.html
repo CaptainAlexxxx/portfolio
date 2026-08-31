@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oleksii Ilienko — selected work</title>
-<meta name="description" content="Selected work of a PHP/Laravel developer: customs clearance, shipment tracking, integrations and legacy refactoring.">
+<title>Oleksii Ilienko — Fullstack PHP / Laravel developer</title>
+<meta name="description" content="Selected work of a fullstack PHP/Laravel developer: customs clearance, shipment tracking, integrations and legacy refactoring.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -74,8 +74,10 @@ body{
   font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--mute);
   border-top:2px solid var(--ink); border-bottom:1px solid var(--line);
   padding:8px 0; margin:0 0 26px;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:4px 24px;
+  display:flex; flex-wrap:wrap; gap:4px 30px;
 }
+.specline > div{white-space:nowrap}
+@media (max-width:620px){ .specline > div{white-space:normal; flex:1 1 100%} }
 .specline b{color:var(--ink); font-weight:500}
 .project p.intro{max-width:66ch; margin:0 0 20px}
 .did{margin:0 0 32px; padding:0; list-style:none; max-width:68ch}
@@ -156,9 +158,10 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 
 <header class="masthead">
   <div class="wrap">
-    <p class="role">Oleksii Ilienko · PHP / Laravel developer · Kyiv</p>
+    <p class="role">Oleksii Ilienko · Fullstack PHP / Laravel developer · Kyiv</p>
     <h1>Customs, cargo<br>and the software<br>that moves it.</h1>
-    <p class="lede">Three years of commercial PHP. For the last year I was the only developer on two production
+    <p class="lede">Fullstack developer with a backend focus, three years of commercial PHP. For the last year I
+      was the only developer on two production
       B2B products in customs clearance and logistics, working directly with the CTO — building them from the
       data model up to the interface. Below is what those products actually look like.</p>
     <ul class="contacts">
@@ -188,7 +191,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     <h2>ProCargo <span class="tag-closed">closed source</span></h2>
     <div class="specline">
       <div><b>Role</b> — sole developer</div>
-      <div><b>Stack</b> — Laravel 10, Inertia, Vue 3</div>
+      <div><b>Stack</b> — Laravel 10, Inertia, Vue 3</div>
       <div><b>Period</b> — 2025–2026</div>
       <div><b>Team</b> — myself + CTO</div>
     </div>
@@ -239,7 +242,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     <h2>ICS — customs gateway <span class="tag-closed">closed source</span></h2>
     <div class="specline">
       <div><b>Role</b> — sole developer</div>
-      <div><b>Stack</b> — Laravel 12, Filament, Vue 3</div>
+      <div><b>Stack</b> — Laravel 12, Filament, Vue 3</div>
       <div><b>Period</b> — 2025–2026</div>
       <div><b>Scope</b> — multi-tenant SaaS</div>
     </div>
@@ -307,7 +310,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     <h2>ProCargo public site <span class="tag-closed">closed source</span></h2>
     <div class="specline">
       <div><b>Role</b> — sole developer</div>
-      <div><b>Stack</b> — WordPress + Laravel</div>
+      <div><b>Stack</b> — WordPress + Laravel</div>
       <div><b>Period</b> — 2026</div>
       <div><b>Scope</b> — marketing + app entry</div>
     </div>
@@ -347,7 +350,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       <a class="tag-open" href="https://github.com/CaptainAlexxxx/laravel-telegram-helpdesk">source on GitHub</a></h2>
     <div class="specline">
       <div><b>Role</b> — sole developer</div>
-      <div><b>Stack</b> — Laravel 12, Nutgram</div>
+      <div><b>Stack</b> — Laravel 12, Nutgram</div>
       <div><b>Period</b> — 2026</div>
       <div><b>Scope</b> — internal support desk</div>
     </div>
