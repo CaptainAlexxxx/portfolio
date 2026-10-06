@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oleksii Ilienko — Fullstack PHP / Laravel developer</title>
-<meta name="description" content="Selected work of a fullstack PHP/Laravel developer: customs clearance, shipment tracking, integrations and legacy refactoring.">
+<title>Oleksii Ilienko — selected work</title>
+<meta name="description" content="Selected work of a fullstack PHP/Laravel and Vue developer: customs clearance, shipment tracking, multi-tenancy, service integrations and legacy refactoring.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -48,6 +48,18 @@ body{
 .contacts a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line)}
 .contacts a:hover{color:var(--accent); border-color:var(--accent)}
 
+/* ---------- key numbers ---------- */
+.stats{border-bottom:1px solid var(--line); padding:22px 0}
+.stats ul{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px 24px;
+}
+.stats b{
+  display:block; font-family:"Archivo",sans-serif; font-weight:800;
+  font-size:30px; line-height:1.1; letter-spacing:-.02em; color:var(--accent);
+}
+.stats span{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--mute)}
+
 /* ---------- manifest index ---------- */
 .manifest{border-bottom:1px solid var(--line); padding:20px 0}
 .manifest ol{
@@ -74,10 +86,8 @@ body{
   font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--mute);
   border-top:2px solid var(--ink); border-bottom:1px solid var(--line);
   padding:8px 0; margin:0 0 26px;
-  display:flex; flex-wrap:wrap; gap:4px 30px;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:4px 24px;
 }
-.specline > div{white-space:nowrap}
-@media (max-width:620px){ .specline > div{white-space:normal; flex:1 1 100%} }
 .specline b{color:var(--ink); font-weight:500}
 .project p.intro{max-width:66ch; margin:0 0 20px}
 .did{margin:0 0 32px; padding:0; list-style:none; max-width:68ch}
@@ -87,6 +97,8 @@ body{
   font-family:"IBM Plex Mono",monospace;
 }
 .did b{font-weight:600}
+.did a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--accent)}
+.did a:hover{color:var(--accent)}
 
 /* ---------- shots ---------- */
 figure{margin:0 0 26px; background:var(--card); border:1px solid var(--line)}
@@ -158,12 +170,12 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 
 <header class="masthead">
   <div class="wrap">
-    <p class="role">Oleksii Ilienko · Fullstack PHP / Laravel developer · Kyiv</p>
+    <p class="role">Oleksii Ilienko · Fullstack developer · PHP / Laravel, Vue · Kyiv</p>
     <h1>Customs, cargo<br>and the software<br>that moves it.</h1>
-    <p class="lede">Fullstack developer with a backend focus, three years of commercial PHP. For the last year I
-      was the only developer on two production
-      B2B products in customs clearance and logistics, working directly with the head of engineering, building them from the
-      data model up to the interface. Below is what those products actually look like.</p>
+    <p class="lede">Three years of commercial PHP and Vue. For the last year I owned two production B2B products
+      in customs clearance and logistics end to end — architecture, integrations, interface and releases —
+      reporting to the Head of Engineering. Both products lived in an ecosystem of internal services: ERP,
+      warehouse system, customs gateway, incident service. Below is what they actually look like.</p>
     <ul class="contacts">
       <li><a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
       <li><a href="https://t.me/CaptainAlexxx">Telegram</a></li>
@@ -173,6 +185,17 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   </div>
 </header>
 
+<section class="stats" aria-label="Key numbers">
+  <div class="wrap">
+    <ul>
+      <li><b>~10×</b><span>faster background job pipeline</span></li>
+      <li><b>7</b><span>systems integrated: ERP, OMS/WMS, customs API…</span></li>
+      <li><b>~1M</b><span>shipments in the customs portal</span></li>
+      <li><b>100k+</b><span>monthly users, Telegram Mini App</span></li>
+    </ul>
+  </div>
+</section>
+
 <nav class="manifest">
   <div class="wrap">
     <ol>
@@ -180,6 +203,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       <li><a href="#ics"><span>ICS Gateway</span><span>multi-tenant</span></a></li>
       <li><a href="#site"><span>Public site</span><span>WordPress + Laravel</span></a></li>
       <li><a href="#bot"><span>Support bot</span><span>open source</span></a></li>
+      <li><a href="#more"><span>More work</span><span>Mini App, TS, games</span></a></li>
     </ol>
   </div>
 </nav>
@@ -190,21 +214,35 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <section class="project" id="procargo">
     <h2>ProCargo <span class="tag-closed">closed source</span></h2>
     <div class="specline">
-      <div><b>Role</b> — sole developer</div>
-      <div><b>Stack</b> — Laravel 10, Inertia, Vue 3</div>
+      <div><b>Role</b> — owner, backend + frontend</div>
+      <div><b>Stack</b> — Laravel 10, Inertia, Vue 3</div>
       <div><b>Period</b> — 2025–2026</div>
-      <div><b>Team</b> — myself + head of engineering</div>
+      <div><b>Reported to</b> — Head of Engineering</div>
     </div>
 
-    <p class="intro">A platform for customs declarations and shipment tracking: registers, parcels, depot cash
-      desks, document generation, and integrations with the Ukrainian customs API, the Cashalot fiscal service
-      and internal ERP and OMS/WMS systems.</p>
+    <p class="intro">I took ProCargo over as legacy and became its main developer — about 70% of its 1,000+
+      commits. A platform for customs declarations and shipment tracking: registers, parcels, depot cash
+      desks, document generation, and integrations with the Ukrainian customs API, the Cashalot fiscal service,
+      Odoo ERP, the OMS/WMS, the customs gateway and the company websites.</p>
 
     <ul class="did">
       <li><b>Cut background job execution time roughly 10x.</b> Replaced <code class="mono">dispatchAfterResponse</code>,
         which silently failed under Nginx/PHP-FPM, removed payload bloat from <code class="mono">Bus::chain</code>
         by passing shipment IDs instead of 192+ serialized job objects, and fixed a cache-lock deadlock.</li>
-      <li><b>Removed N+1 queries in the KPI dashboard</b>, cutting report load time by two orders of magnitude.</li>
+      <li><b>Made shipment creation safe over a non-idempotent customs API.</b> A retried job would create a
+        duplicate at customs, so I added Redis locks per manifest and per shipment with TTLs tuned to the API
+        timeout, non-blocking acquisition, and per-job retry policies: one try for non-idempotent jobs, retries
+        for the rest.</li>
+      <li><b>Turned the register pipeline into a state machine.</b> An Excel register flows through
+        <code class="mono">Bus::chain</code> and <code class="mono">Bus::batch</code> — manifest, shipments,
+        ERP, OMS — with rollback on failure and safe re-entry for partially processed registers.</li>
+      <li><b>Made track-number assignment race-free</b> with <code class="mono">lockForUpdate</code> inside a
+        transaction, so parallel workers never hand out the same number twice.</li>
+      <li><b>Ran a security hardening pass</b>: fail-closed webhooks, <code class="mono">hash_equals</code> for
+        secrets, an IP allowlist that ignores <code class="mono">X-Forwarded-For</code>, 2FA attempt limits,
+        hashed reset tokens and host validation in reset links.</li>
+      <li><b>Removed N+1 queries in the KPI dashboard</b> with GROUP BY aggregates, batches of 500 to stay under
+        MySQL's placeholder limit, and lazy-loaded details — report load time down two orders of magnitude.</li>
       <li><b>Rewrote a core service from scratch</b> after years of accumulated nested conditionals, and
         consolidated two legacy PDF helpers (900+ and 870+ lines) into one service through a staged 15-step
         migration, with no production downtime.</li>
@@ -241,18 +279,32 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <section class="project" id="ics">
     <h2>ICS — customs gateway <span class="tag-closed">closed source</span></h2>
     <div class="specline">
-      <div><b>Role</b> — sole developer</div>
-      <div><b>Stack</b> — Laravel 12, Filament, Vue 3</div>
+      <div><b>Role</b> — team project, sole owner in its final months</div>
+      <div><b>Stack</b> — Laravel 12, Filament, Vue 3</div>
       <div><b>Period</b> — 2025–2026</div>
       <div><b>Scope</b> — multi-tenant SaaS</div>
     </div>
 
-    <p class="intro">A gateway between brokers and the Ukrainian customs system. Each tenant gets an isolated
-      workspace with its own branding, users and shipment flow.</p>
+    <p class="intro">A gateway between brokers and the Ukrainian customs system, holding about a million
+      shipments. Each tenant gets an isolated workspace with its own branding, users and shipment flow.</p>
 
     <ul class="did">
-      <li><b>Built multi-tenancy with per-tenant branding</b> — brand and accent colours, text or SVG logo, live
-        preview, applied across the whole interface.</li>
+      <li><b>Moved qualified e-signing from the server to the user's browser.</b> The private key no longer sits
+        on the server: signing runs in a Web Worker through IIT EndUser. The server prepares deterministic XML
+        bytes, the browser signs them, the server sends them — the XML is never rebuilt, so the signature never
+        breaks. Idempotency through a SHA-256 content key, retries without re-signing, batched sending on a
+        schedule to respect rate limits. Ran in production.</li>
+      <li><b>Automated the customs register chain 30.1 → 31.1 → 32.1.</b> Encrypted SOAP transport (AES-256-CBC
+        payload, RSA session key, ZIP containers), then a queue pipeline: send, poll with backoff, parse the
+        response, feed its data into the next stage. Operators no longer push each step by hand.</li>
+      <li><b>Audited ~2M counterparty records and designed entity resolution.</b> Found and excluded ~250k rows
+        of load-test data first, then built match keys for names in arbitrary order, shared consolidator
+        phones and addresses in mixed languages. The rule: a false merge is never acceptable, anything
+        borderline goes to manual review.</li>
+      <li><b>Designed multi-tenancy on a legacy codebase in a month</b>, with per-tenant branding — brand and
+        accent colours, text or SVG logo, live preview, applied across the whole interface.</li>
+      <li><b>Connected to six company systems</b>: Odoo ERP, OMS/WMS, ProCargo, the company site, the customs
+        gateway and incident-core.</li>
       <li><b>Two integration modes behind a feature flag</b>: through the gateway, or direct submission with a
         qualified e-signature. Switching takes one toggle, which made production rollback instant.</li>
       <li><b>Import and export of shipment registers</b>, project assembly from free shipments, and customs
@@ -309,9 +361,9 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <section class="project" id="site">
     <h2>ProCargo public site <span class="tag-closed">closed source</span></h2>
     <div class="specline">
-      <div><b>Role</b> — sole developer</div>
-      <div><b>Stack</b> — WordPress + Laravel</div>
-      <div><b>Period</b> — 2026</div>
+      <div><b>Role</b> — owner, front end + integration</div>
+      <div><b>Stack</b> — WordPress + Laravel</div>
+      <div><b>Period</b> — 2025</div>
       <div><b>Scope</b> — marketing + app entry</div>
     </div>
 
@@ -320,8 +372,8 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       one visual language.</p>
 
     <ul class="did">
-      <li><b>Built the front end from scratch</b>, including a tariff calculator and country-by-country pricing
-        tables fed from the application.</li>
+      <li><b>Built the front end from scratch in two months</b> — my first WordPress project — including a tariff
+        calculator and country-by-country pricing tables fed from the application.</li>
       <li><b>Kept shipment creation inside the same flow</b>, so a visitor can go from the landing page to a
         submitted shipment without a context switch.</li>
       <li><b>Bilingual content and both themes</b> — Ukrainian and English, light and dark, consistent
@@ -349,8 +401,8 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     <h2>Telegram support bot
       <a class="tag-open" href="https://github.com/CaptainAlexxxx/laravel-telegram-helpdesk">source on GitHub</a></h2>
     <div class="specline">
-      <div><b>Role</b> — sole developer</div>
-      <div><b>Stack</b> — Laravel 12, Nutgram</div>
+      <div><b>Role</b> — author</div>
+      <div><b>Stack</b> — Laravel 12, Nutgram</div>
       <div><b>Period</b> — 2026</div>
       <div><b>Scope</b> — internal support desk</div>
     </div>
@@ -381,6 +433,33 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         <figcaption>Schedule editor, and the 1–5 satisfaction score.</figcaption>
       </figure>
     </div>
+  </section>
+
+  <!-- ================= MORE ================= -->
+  <section class="project" id="more">
+    <h2>More work</h2>
+    <div class="specline">
+      <div><b>Scope</b> — earlier jobs and side projects</div>
+      <div><b>Stack</b> — PHP, TypeScript, C#</div>
+    </div>
+
+    <ul class="did">
+      <li><b>Telegram Mini App, Prof-It (2023–2025).</b> Backend and frontend from the first commit to a public
+        release in two months; the product grew to hundreds of thousands of monthly users. Data model and
+        background processing built for constant short requests from a large concurrent audience. The product
+        is retired and the code was closed, so there are no screenshots.</li>
+      <li><b>incident-core (2026, TypeScript).</b> A new service consolidating incidents from all company
+        systems. I delivered its first half in two weeks; development stopped when the company closed.</li>
+      <li><b><a href="https://github.com/CaptainAlexxxx/laravel-ephemeral-files">laravel-ephemeral-files</a></b>
+        — Laravel 13, PHP 8.4, RabbitMQ, Docker Compose. Files expire after 24 hours; every deletion publishes
+        a notification through RabbitMQ inside the delete transaction. Feature tests run in GitHub Actions.</li>
+      <li><b><a href="https://github.com/CaptainAlexxxx/n5deal-marketplace-prototype">n5deal marketplace prototype</a></b>
+        — Next.js 15, TypeScript, Prisma. Three roles, faceted search, fit scoring between listings and buyer
+        mandates, moderation with an append-only action log.</li>
+      <li><b>Games in Unity / C#.</b> A decade of game development before backend, including a released Android
+        game (about 5,000 installs with no paid marketing) and a game on Steam. Shipping whole systems alone
+        taught me what unmaintainable architecture costs.</li>
+    </ul>
   </section>
 
 </main>
