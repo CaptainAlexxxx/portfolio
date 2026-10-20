@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Oleksii Ilienko — selected work</title>
-<meta name="description" content="Selected work of a fullstack PHP/Laravel and Vue developer: customs clearance, shipment tracking, multi-tenancy, service integrations and legacy refactoring.">
+<meta name="description" content="Selected work of a full-stack Laravel, Vue 3 and TypeScript developer: customs clearance, shipment tracking, multi-tenancy, service integrations and legacy refactoring.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -170,11 +170,11 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 
 <header class="masthead">
   <div class="wrap">
-    <p class="role">Oleksii Ilienko · Fullstack developer · PHP / Laravel, Vue · Kyiv</p>
+    <p class="role">Oleksii Ilienko · Full-stack developer · Laravel, Vue 3, TypeScript · Kyiv</p>
     <h1>Customs, cargo<br>and the software<br>that moves it.</h1>
-    <p class="lede">Three years of commercial PHP and Vue. For the last year I owned two production B2B products
-      in customs clearance and logistics end to end — architecture, integrations, interface and releases —
-      reporting to the Head of Engineering. Both products lived in an ecosystem of internal services: ERP,
+    <p class="lede">Three years of commercial Laravel and Vue 3 with TypeScript. For the last year I owned two
+      production B2B products in customs clearance and logistics end to end: architecture, integrations,
+      interface and releases. We were a two-person team with the Head of Engineering, who reviewed my code. Both products lived in an ecosystem of internal services: ERP,
       warehouse system, customs gateway, incident service. Below is what they actually look like.</p>
     <ul class="contacts">
       <li><a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
@@ -191,7 +191,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       <li><b>~10×</b><span>faster background job pipeline</span></li>
       <li><b>7</b><span>systems integrated: ERP, OMS/WMS, customs API…</span></li>
       <li><b>~1M</b><span>shipments in the customs portal</span></li>
-      <li><b>100k+</b><span>monthly users, Telegram Mini App</span></li>
+      <li><b>10M+</b><span>registered users, NotAI Telegram Mini App</span></li>
     </ul>
   </div>
 </section>
@@ -203,7 +203,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       <li><a href="#ics"><span>ICS Gateway</span><span>multi-tenant</span></a></li>
       <li><a href="#site"><span>Public site</span><span>WordPress + Laravel</span></a></li>
       <li><a href="#bot"><span>Support bot</span><span>open source</span></a></li>
-      <li><a href="#more"><span>More work</span><span>Mini App, TS, games</span></a></li>
+      <li><a href="#more"><span>More work</span><span>NotAI, TypeScript</span></a></li>
     </ol>
   </div>
 </nav>
@@ -215,7 +215,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     <h2>ProCargo <span class="tag-closed">closed source</span></h2>
     <div class="specline">
       <div><b>Role</b> — owner, backend + frontend</div>
-      <div><b>Stack</b> — Laravel 10, Inertia, Vue 3</div>
+      <div><b>Stack</b> — Laravel 10, Inertia, Vue 3, TypeScript</div>
       <div><b>Period</b> — 2025–2026</div>
       <div><b>Reported to</b> — Head of Engineering</div>
     </div>
@@ -226,6 +226,9 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       Odoo ERP, the OMS/WMS, the customs gateway and the company websites.</p>
 
     <ul class="did">
+      <li><b>Rebuilt the frontend on Vue 3 and TypeScript</b>: own component library, composables, data tables
+        and forms, a responsive design system with light and dark themes, localisation. Two full redesigns
+        (compare them below in ICS).</li>
       <li><b>Cut background job execution time roughly 10x.</b> Replaced <code class="mono">dispatchAfterResponse</code>,
         which silently failed under Nginx/PHP-FPM, removed payload bloat from <code class="mono">Bus::chain</code>
         by passing shipment IDs instead of 192+ serialized job objects, and fixed a cache-lock deadlock.</li>
@@ -248,8 +251,6 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         migration, with no production downtime.</li>
       <li><b>Built the integrations</b> — customs API over SOAP with qualified e-signatures, Cashalot, ERP and
         OMS/WMS — plus a feature flag switching between two customs modes for instant rollback in production.</li>
-      <li><b>Rebuilt the interface</b>: two full redesigns, role-based admin panel, light and dark themes,
-        localisation, Excel and PDF generation.</li>
     </ul>
 
     <figure>
@@ -279,7 +280,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <section class="project" id="ics">
     <h2>ICS — customs gateway <span class="tag-closed">closed source</span></h2>
     <div class="specline">
-      <div><b>Role</b> — team project, sole owner in its final months</div>
+      <div><b>Role</b> — team project, led it in its final months</div>
       <div><b>Stack</b> — Laravel 12, Filament, Vue 3</div>
       <div><b>Period</b> — 2025–2026</div>
       <div><b>Scope</b> — multi-tenant SaaS</div>
@@ -444,12 +445,14 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     </div>
 
     <ul class="did">
-      <li><b>Telegram Mini App, Prof-It (2024).</b> Backend and frontend from the first commit to a public
-        release in two months; the product grew to hundreds of thousands of monthly users. Data model and
-        background processing built for constant short requests from a large concurrent audience. The product
-        is retired and the code was closed, so there are no screenshots.</li>
+      <li><b>NotAI, Prof-It (2024).</b> Built the game part of a client Telegram Mini App with 10M+ registered
+        users: Unity WebGL game, TypeScript integration with Telegram, Laravel backend. First commit to public
+        release in two months, shipped with a PM and two QA engineers. Data model and background processing
+        built for constant short requests from a large concurrent audience. The product is retired and the
+        code was closed, so there are no screenshots.</li>
       <li><b>incident-core (2026, TypeScript).</b> A new service consolidating incidents from all company
-        systems. I delivered its first half in two weeks; development stopped when the company closed.</li>
+        systems. I started it from scratch and shipped the first version in two weeks: TypeScript frontend,
+        Laravel backend, REST API. Development stopped when the company laid off the team.</li>
       <li><b><a href="https://github.com/CaptainAlexxxx/laravel-ephemeral-files">laravel-ephemeral-files</a></b>
         — Laravel 13, PHP 8.4, RabbitMQ, Docker Compose. Files expire after 24 hours; every deletion publishes
         a notification through RabbitMQ inside the delete transaction. Feature tests run in GitHub Actions.</li>
@@ -457,7 +460,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         — Next.js 15, TypeScript, Prisma. Three roles, faceted search, fit scoring between listings and buyer
         mandates, moderation with an append-only action log.</li>
       <li><b>Games in Unity / C#.</b> A decade of game development before backend, including a released Android
-        game (about 5,000 installs with no paid marketing) and a game on Steam. Shipping whole systems alone
+        game (about 5,000 installs with no paid marketing). Shipping whole systems alone
         taught me what unmaintainable architecture costs.</li>
     </ul>
   </section>
