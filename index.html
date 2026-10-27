@@ -3,21 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oleksii Ilienko: full-stack PHP developer, Laravel, Vue 3, TypeScript</title>
-<meta name="description" content="Full-stack PHP developer: Laravel, Vue 3, TypeScript. Reliable integrations, async queue pipelines and fast interfaces for production B2B products. Remote, available now.">
+<title>Oleksii Ilienko, full-stack Laravel developer (Vue 3, TypeScript)</title>
+<meta name="description" content="Full-stack Laravel developer: PHP 8, Vue 3, TypeScript. Customs declarations, encrypted government APIs, ERP and warehouse integrations. Remote, available now.">
+<link rel="canonical" href="https://captainalexxxx.github.io/portfolio/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Oleksii Ilienko, full-stack Laravel developer (Vue 3, TypeScript)">
+<meta property="og:description" content="Backend-leaning full-stack developer. Customs declarations, encrypted government APIs, ERP and warehouse integrations, with Vue 3 interfaces on top. Remote, available now.">
+<meta property="og:url" content="https://captainalexxxx.github.io/portfolio/">
+<meta property="og:image" content="https://captainalexxxx.github.io/portfolio/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Oleksii Ilienko, full-stack Laravel developer (Vue 3, TypeScript)">
+<meta name="twitter:description" content="Backend-leaning full-stack developer. Customs declarations, encrypted government APIs, ERP and warehouse integrations, with Vue 3 interfaces on top.">
+<meta name="twitter:image" content="https://captainalexxxx.github.io/portfolio/images/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /*
-  Design system shared with the CV.
-  Changes from the base palette:
-  - mute darkened from #666C73 to #5A6067: the old value is 4.39:1 on paper #E7EAEC and fails WCAG AA
-    for body text; #5A6067 is 5.26:1 on paper and 6.36:1 on card.
-  - one supporting tint added, --tint #F6E3E1, a light accent wash for highlights.
-    Accent on tint is 5.07:1, ink on tint 14.66:1.
-  - on ink backgrounds text uses paper (14.99:1) and --mute-dark #9AA1A8 (6.93:1);
-    the accent becomes --accent-on-ink #F08A82 (7.47:1) so it stays readable.
+  Shared with the CV. Accent #AE3F1A is 5.96:1 on white, 4.93:1 on paper; white on accent is 5.96:1.
+  It has four jobs only: calls to action, key numbers, the contact band, the proof bar and compare handle.
+  On ink, text uses paper (14.99:1) and --mute-dark (6.93:1).
 */
 :root{
   --paper:#E7EAEC;
@@ -25,10 +33,8 @@
   --ink:#14161A;
   --mute:#5A6067;
   --line:#C6CBD0;
-  --accent:#B32F27;
-  --tint:#F6E3E1;
+  --accent:#AE3F1A;
   --mute-dark:#9AA1A8;
-  --accent-on-ink:#F08A82;
   --maxw:1160px;
   --display:"Archivo",Impact,"Arial Narrow",sans-serif;
   --text:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -67,34 +73,37 @@ code{font-family:var(--mono); font-size:.88em; background:var(--paper); padding:
 /* hero */
 .hero{padding:28px 0 40px; border-bottom:1px solid var(--line)}
 .hero .grid{display:grid; gap:36px}
-@media (min-width:980px){.hero{padding:56px 0 64px}.hero .grid{grid-template-columns:1.25fr 1fr; gap:56px; align-items:start}}
+@media (min-width:980px){.hero{padding:56px 0 64px}.hero .grid{grid-template-columns:1.35fr 1fr; gap:56px; align-items:start}}
 .status{display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:12.5px;
   background:var(--card); border:1px solid var(--line); border-radius:999px; padding:6px 14px 6px 10px; margin:0 0 26px}
-.status .dot{width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--tint); flex:none}
+.status .dot{width:9px; height:9px; border-radius:50%; background:var(--ink); box-shadow:0 0 0 4px var(--line); flex:none}
 .status b{font-weight:600}
 .eyebrow{font-family:var(--mono); font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--mute); margin:0 0 10px}
-.hero h1{font-family:var(--display); font-weight:900; font-size:clamp(38px,5.6vw,66px); line-height:.96;
+.hero h1{font-family:var(--display); font-weight:900; font-size:clamp(38px,4.6vw,58px); line-height:.98;
   letter-spacing:-.035em; margin:0 0 18px}
-.hero h1 .stack{display:block; color:var(--accent)}
+.hero h1 .stack{display:block; font-weight:800; font-size:.5em; letter-spacing:-.015em; line-height:1.1; margin-top:12px}
 .hero .value{font-size:clamp(18px,2.2vw,21px); line-height:1.45; max-width:34em; margin:0 0 28px}
-.hero .value b{font-weight:600; background:linear-gradient(transparent 62%,var(--tint) 62%)}
 .ctas{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 18px; padding:0; list-style:none}
 .btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:14px; font-weight:500;
-  text-decoration:none; padding:12px 16px; border-radius:3px; border:1.5px solid var(--ink); background:var(--card); color:var(--ink)}
+  text-decoration:none; padding:12px 14px; border-radius:3px; border:1.5px solid var(--ink); background:var(--card); color:var(--ink)}
 .btn:hover{background:var(--ink); color:var(--paper)}
 .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
 .btn.primary:hover{background:var(--ink); border-color:var(--ink)}
+.btn.dark{background:var(--ink); color:#fff}
+.btn.dark:hover{background:var(--card); color:var(--ink)}
 .btn .k{color:inherit; opacity:.7; font-size:12px}
 .ledger dt{min-width:3.9em}
 @media (max-width:560px){
-  .hero .ctas{display:grid; grid-template-columns:repeat(3,1fr)}
-  .hero .ctas li:first-child{grid-column:1/-1}
-  .hero .ctas .btn{justify-content:center; width:100%; padding:12px 8px}
-  .btn .k{display:none}
-  .ledger dt{min-width:0}
+  .ctas{display:grid; grid-template-columns:repeat(3,1fr)}
+  .ctas li:nth-child(-n+2){grid-column:1/-1}
+  .ctas .btn{justify-content:center; width:100%; padding:12px 8px}
   .status{font-size:12px; border-radius:6px}
+  .ledger .row{display:block}
+  .ledger dd{margin-top:6px}
 }
 .fine{font-family:var(--mono); font-size:12.5px; color:var(--mute); margin:0}
+.fine a{color:var(--ink); text-underline-offset:3px; white-space:nowrap}
+.nw{white-space:nowrap}
 
 /* proof ledger */
 .ledger{background:var(--ink); color:var(--paper); border-radius:6px; padding:8px 22px 4px; position:relative}
@@ -107,7 +116,7 @@ code{font-family:var(--mono); font-size:.88em; background:var(--paper); padding:
 .ledger .row:first-child{border-top:0}
 .ledger dt{font-family:var(--display); font-weight:900; font-size:clamp(34px,4.6vw,46px); line-height:1;
   letter-spacing:-.03em; color:var(--paper); white-space:nowrap}
-.ledger dt small{font-size:.5em; letter-spacing:-.01em; color:var(--accent-on-ink); margin-left:2px}
+.ledger dt small{font-size:.5em; letter-spacing:-.01em; margin-left:2px}
 .ledger dd{margin:0; font-size:14px; line-height:1.4; color:var(--mute-dark); flex:1 1 220px}
 .ledger dd b{display:block; color:var(--paper); font-weight:600; font-size:15px}
 
@@ -115,21 +124,23 @@ code{font-family:var(--mono); font-size:.88em; background:var(--paper); padding:
 section{scroll-margin-top:64px}
 .sec{padding:64px 0 24px}
 .sec-head{display:grid; gap:8px; margin:0 0 30px}
-.sec-no{font-family:var(--mono); font-size:13px; color:var(--accent); letter-spacing:.08em}
+.sec-no{font-family:var(--mono); font-size:13px; color:var(--mute); letter-spacing:.08em}
 .sec-head h2{font-family:var(--display); font-weight:800; font-size:clamp(30px,5vw,48px); line-height:1;
   letter-spacing:-.03em; margin:0}
 .sec-head p{margin:4px 0 0; color:var(--mute); max-width:60ch}
+.sec-head h2.h2-sm{font-size:clamp(24px,3.6vw,34px)}
+.sec.tight{padding-top:24px}
 
 /* how I work */
 .how{background:var(--ink); color:var(--paper); padding:56px 0 60px}
 .how .sec-head h2{color:var(--paper)}
-.how .sec-no{color:var(--accent-on-ink)}
+.how .sec-no{color:var(--mute-dark)}
 .how ol{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:#2C3036; border:1px solid #2C3036}
 @media (min-width:700px){.how ol{grid-template-columns:1fr 1fr}}
 @media (min-width:1080px){.how ol{grid-template-columns:repeat(4,1fr)}}
 .how li{background:var(--ink); padding:22px 20px 24px}
 .how h3{font-family:var(--display); font-weight:800; font-size:21px; letter-spacing:-.01em; margin:0 0 10px; line-height:1.15}
-.how h3 span{display:block; font-family:var(--mono); font-weight:500; font-size:12px; color:var(--accent-on-ink); letter-spacing:.08em; margin-bottom:10px}
+.how h3 span{display:block; font-family:var(--mono); font-weight:500; font-size:12px; color:var(--mute-dark); letter-spacing:.08em; margin-bottom:10px}
 .how p{margin:0 0 10px; font-size:15px; color:#C9CED3}
 .how p:last-child{margin-bottom:0}
 .how .tags{font-family:var(--mono); font-size:12px; color:var(--mute-dark); line-height:1.7}
@@ -139,21 +150,19 @@ section{scroll-margin-top:64px}
 @media (min-width:700px){.project{padding:34px 34px 14px}}
 .p-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin:0 0 6px}
 .p-head h3{font-family:var(--display); font-weight:800; font-size:clamp(26px,3.6vw,36px); letter-spacing:-.025em; margin:0; line-height:1.05}
-.flag{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--mute);
-  border:1px solid var(--line); padding:3px 8px; border-radius:3px; white-space:nowrap}
-a.flag{color:#fff; background:var(--accent); border-color:var(--accent); text-decoration:none}
-a.flag:hover{background:var(--ink); border-color:var(--ink)}
+.flag{font-family:var(--mono); font-size:12px; color:var(--mute); white-space:nowrap}
 .oneliner{font-size:18px; line-height:1.45; margin:0 0 18px; max-width:52ch}
 .spec{display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0 0 24px; padding:0}
 .spec li{font-family:var(--mono); font-size:12.5px; background:var(--paper); border-radius:3px; padding:5px 10px; line-height:1.35}
 .spec li b{font-weight:500; color:var(--mute); margin-right:6px}
 .p-body{display:grid; gap:26px}
+.project.spaced{margin-top:36px}
 @media (min-width:980px){.p-body:not(.stacked){grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:40px; align-items:start}}
 .outcomes{list-style:none; margin:0; padding:0; counter-reset:o}
 .outcomes li{position:relative; padding:12px 0 12px 34px; border-top:1px solid var(--line); line-height:1.45}
 .outcomes li:first-child{border-top:0; padding-top:0}
 .outcomes li::before{counter-increment:o; content:counter(o,decimal-leading-zero); position:absolute; left:0; top:14px;
-  font-family:var(--mono); font-size:11.5px; color:var(--accent)}
+  font-family:var(--mono); font-size:11.5px; color:var(--mute)}
 .outcomes li:first-child::before{top:2px}
 @media (min-width:980px){
   .stacked .outcomes{display:grid; grid-template-columns:repeat(3,1fr); gap:0 28px}
@@ -169,18 +178,20 @@ details.deep summary{cursor:pointer; list-style:none; display:flex; justify-cont
   padding:14px 0; font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.04em}
 details.deep summary::-webkit-details-marker{display:none}
 details.deep summary .hint{font-weight:400; color:var(--mute); font-size:12.5px}
-details.deep summary::after{content:"+"; font-family:var(--mono); font-size:20px; line-height:1; color:var(--accent);
-  width:28px; height:28px; display:grid; place-items:center; border:1.5px solid var(--accent); border-radius:50%; flex:none}
+details.deep summary::after{content:"+"; font-family:var(--mono); font-size:20px; line-height:1;
+  width:28px; height:28px; display:grid; place-items:center; border:1.5px solid var(--ink); border-radius:50%; flex:none}
 details.deep[open] summary::after{content:"\2212"}
-details.deep summary:hover{color:var(--accent)}
+details.deep summary:hover{text-decoration:underline; text-underline-offset:4px}
 .deep-grid{display:grid; gap:18px 36px; padding:4px 0 18px}
 @media (min-width:860px){.deep-grid{grid-template-columns:1fr 1fr}}
-.deep-grid h4{font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin:0 0 6px; color:var(--accent)}
+.deep-grid h4{font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin:0 0 6px}
 .deep-grid p{margin:0; font-size:15px; line-height:1.55}
 
 /* figures */
 figure{margin:0; background:var(--card); border:1px solid var(--line); border-radius:4px; overflow:hidden}
 figure img{display:block; width:100%; height:auto}
+figure a{display:block; cursor:zoom-in}
+figure a:focus-visible{outline-offset:-3px}
 figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8px 12px; border-top:1px solid var(--line); line-height:1.45}
 .shots{display:grid; gap:16px}
 .shots.two{grid-template-columns:1fr 1fr}
@@ -214,19 +225,19 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
 /* story + side */
 .story{display:grid; gap:20px; margin:0 0 28px}
 @media (min-width:980px){.story{grid-template-columns:1.2fr 1fr}}
-.quote{background:var(--tint); border-left:4px solid var(--accent); border-radius:0 6px 6px 0; padding:22px 22px 20px}
-.quote .lab{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin:0 0 10px}
+.quote{background:var(--card); border-left:4px solid var(--ink); border-radius:0 6px 6px 0; padding:22px 22px 20px}
+.quote .lab{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--mute); margin:0 0 10px}
 .quote p.big{font-family:var(--display); font-weight:800; font-size:clamp(22px,2.8vw,28px); line-height:1.15; letter-spacing:-.02em; margin:0 0 14px}
 .timeline{list-style:none; margin:0; padding:0}
-.timeline li{display:grid; grid-template-columns:96px 1fr; gap:12px; padding:9px 0; border-top:1px solid rgba(179,47,39,.25); font-size:15px}
+.timeline li{display:grid; grid-template-columns:96px 1fr; gap:12px; padding:9px 0; border-top:1px solid var(--line); font-size:15px}
 .timeline li:first-child{border-top:0}
-.timeline b{font-family:var(--mono); font-weight:600; font-size:12.5px; color:var(--accent); padding-top:2px}
+.timeline b{font-family:var(--mono); font-weight:600; font-size:12.5px; padding-top:2px}
 .small-cards{display:grid; gap:20px}
 .mini{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:20px}
 .mini h3{font-family:var(--display); font-weight:800; font-size:21px; letter-spacing:-.015em; margin:0 0 4px; line-height:1.15}
 .mini .meta{font-family:var(--mono); font-size:12px; color:var(--mute); margin:0 0 10px}
 .mini p{margin:0 0 8px; font-size:15px}
-.mini a{color:var(--accent); font-weight:500}
+.mini a{font-weight:500; text-underline-offset:3px}
 
 /* open source */
 .repos{display:grid; gap:20px}
@@ -238,6 +249,7 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
 .repo .badge{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--ink); padding:3px 8px; border-radius:3px}
 .repo p{margin:0 0 12px}
 .repo .spec{margin:0 0 16px}
+.repo .outcomes{margin-bottom:18px}
 .repo .go{margin-top:auto; font-family:var(--mono); font-size:13.5px; font-weight:600; color:var(--accent); text-decoration:none; align-self:flex-start; border-bottom:1.5px solid currentColor; padding-bottom:1px}
 .repo .go:hover{color:var(--ink)}
 .flag-body{display:grid; gap:22px}
@@ -251,7 +263,8 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
 .contact .btn:hover{background:#fff; color:var(--accent)}
 .contact .btn.primary{background:#fff; color:var(--accent); border-color:#fff}
 .contact .btn.primary:hover{background:var(--ink); color:#fff; border-color:var(--ink)}
-.contact .fine{color:#fff; font-size:13px; margin-top:4px}
+.contact .fine{color:#fff; font-size:13px; margin-top:4px; max-width:none}
+.contact .fine a{color:#fff}
 
 .foot{padding:28px 0 48px; font-family:var(--mono); font-size:12.5px; color:var(--mute)}
 .foot p{margin:0 0 8px; max-width:80ch}
@@ -303,29 +316,28 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap grid">
     <div>
-      <p class="status"><span class="dot" aria-hidden="true"></span><span><b>Available now</b>: remote, full-time or B2B contract</span></p>
+      <p class="status"><span class="dot" aria-hidden="true"></span><span><b>Available now</b>: remote, employment or B2B contract</span></p>
       <p class="eyebrow">Oleksii Ilienko, Kyiv</p>
-      <h1 id="hero-title">Full-stack PHP developer <span class="stack">Laravel, Vue 3, TypeScript</span></h1>
-      <p class="value">I build the parts of a product that are not allowed to fail: <b>integrations with external APIs</b>,
-        <b>queue pipelines</b> that survive retries and partial failures, and <b>fast Vue 3 interfaces</b> on top.
-        For the last year I owned two production B2B platforms end to end.</p>
+      <h1 id="hero-title">Full-stack Laravel developer <span class="stack">PHP 8, Vue 3, TypeScript</span></h1>
+      <p class="value">Backend-leaning full-stack developer. I build systems where a mistake costs money: customs declarations,
+        encrypted government APIs, ERP and warehouse integrations, with <span class="nw">Vue 3</span> interfaces on top.</p>
       <ul class="ctas">
-        <li><a class="btn primary" href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
-        <li><a class="btn" href="https://t.me/CaptainAlexxx">Telegram</a></li>
+        <li><a class="btn primary" href="mailto:alexthearts@gmail.com">Email me</a></li>
+        <li><a class="btn dark" href="CV_Oleksii_Ilienko.pdf" download>Download CV <span class="k">PDF</span></a></li>
         <li><a class="btn" href="https://github.com/CaptainAlexxxx">GitHub</a></li>
         <li><a class="btn" href="https://www.linkedin.com/in/oleksii-ilienko-laravel">LinkedIn</a></li>
-        <li><a class="btn" href="CV_Oleksii_Ilienko.pdf" download>Download CV <span class="k">PDF</span></a></li>
+        <li><a class="btn" href="https://t.me/CaptainAlexxx">Telegram</a></li>
       </ul>
-      <p class="fine">3 years of commercial Laravel and Vue 3. English B2, Ukrainian native.</p>
+      <p class="fine">3 years of commercial Laravel and Vue 3. English B2, Ukrainian native. <a href="CV_Oleksii_Ilienko_UA.pdf" download>CV (UA)</a></p>
     </div>
 
     <aside class="ledger" aria-labelledby="proof-title">
-      <h2 id="proof-title">Measured in production</h2>
+      <h2 id="proof-title">In production</h2>
       <dl>
         <div class="row"><dt>10<small>x</small></dt><dd><b>faster background jobs</b>5-10 s down to 0.5-1 s per job</dd></div>
         <div class="row"><dt>15<small>s</small>&#8202;&rarr;&#8202;1<small>s</small></dt><dd><b>KPI dashboard load</b>N+1 queries replaced with aggregates</dd></div>
         <div class="row"><dt>7</dt><dd><b>systems integrated</b>ERP, warehouse, customs API, fiscal service and more</dd></div>
-        <div class="row"><dt>10M<small>+</small></dt><dd><b>registered users</b>NotAI Telegram Mini App, game part and backend</dd></div>
+        <div class="row"><dt>10M<small>+</small></dt><dd><b>registered users, NotAI</b>Client Telegram Mini App: game, Telegram integration, backend</dd></div>
       </dl>
     </aside>
   </div>
@@ -336,8 +348,8 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-no">01 / Selected work</span>
-      <h2 id="work-title">Two production platforms I owned</h2>
-      <p>PSP Express, a customs clearance and logistics company, Jul 2025 to Aug 2026. A two-person engineering team: me and the Head of Engineering, who reviewed my code.</p>
+      <h2 id="work-title">Two production platforms, one year</h2>
+      <p>PSP Express, a customs clearance and logistics company, Jul 2025 - Aug 2026, until the company closed. A two-person engineering team: me and the Head of Engineering, who reviewed my code. Main developer of ProCargo, lead developer of ICS from June 2026. Click a screenshot to open it full size.</p>
     </div>
 
     <!-- ProCargo -->
@@ -345,10 +357,10 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
       <div class="p-head"><h3 id="procargo-title">ProCargo</h3><span class="flag">Closed source</span></div>
       <p class="oneliner">B2B platform for customs declarations and shipment tracking. I took it over as legacy and became its main developer.</p>
       <ul class="spec">
-        <li><b>Role</b>Owner, backend and frontend</li>
+        <li><b>Role</b>Main developer, backend and frontend</li>
         <li><b>Stack</b>Laravel 10, Inertia, Vue 3, TypeScript</li>
         <li><b>Commits</b>~70% of 1,000+</li>
-        <li><b>Period</b>2025 to 2026</li>
+        <li><b>Period</b>Jul 2025 - Aug 2026</li>
       </ul>
       <div class="p-body">
         <ul class="outcomes">
@@ -360,16 +372,16 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
         </ul>
         <div>
           <figure class="mb">
-            <img src="images/procargo-registers.jpg" width="1280" height="625" alt="Shipment registers table with filters, statuses and document actions" loading="lazy">
+            <a href="images/procargo-registers.jpg" title="Open full size"><img src="images/procargo-registers.jpg" width="1280" height="625" alt="Shipment registers table with filters, statuses and document actions" loading="lazy"></a>
             <figcaption>Shipment registers, filtered by AWB, track code, manifest, client and depot.</figcaption>
           </figure>
           <div class="shots two">
             <figure>
-              <img src="images/procargo-cash.jpg" width="1280" height="699" alt="Depot cash desk with balance totals and a cash operation form" loading="lazy">
+              <a href="images/procargo-cash.jpg" title="Open full size"><img src="images/procargo-cash.jpg" width="1280" height="699" alt="Depot cash desk with balance totals and a cash operation form" loading="lazy"></a>
               <figcaption>Depot cash desk.</figcaption>
             </figure>
             <figure>
-              <img src="images/procargo-receipts.jpg" width="1280" height="690" alt="Cashier receipts list with filters by operation type, status and date" loading="lazy">
+              <a href="images/procargo-receipts.jpg" title="Open full size"><img src="images/procargo-receipts.jpg" width="1280" height="690" alt="Cashier receipts list with filters by operation type, status and date" loading="lazy"></a>
               <figcaption>Cashier receipts.</figcaption>
             </figure>
           </div>
@@ -419,30 +431,29 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
       <div class="p-head"><h3 id="ics-title">ICS customs portal</h3><span class="flag">Closed source</span></div>
       <p class="oneliner">Multi-tenant portal between customs brokers and the Ukrainian customs system, holding about a million shipments.</p>
       <ul class="spec">
-        <li><b>Role</b>Developer, lead from June 2026</li>
+        <li><b>Role</b>Developer, lead from Jun 2026</li>
         <li><b>Stack</b>Laravel 12, Filament, Vue 3</li>
         <li><b>Scale</b>~1M shipments</li>
-        <li><b>Period</b>Aug 2025 to Aug 2026</li>
+        <li><b>Period</b>Aug 2025 - Aug 2026</li>
       </ul>
       <div class="p-body">
         <ul class="outcomes">
           <li><strong>Qualified e-signing moved into the browser</strong>: the private key <span class="n">never leaves the client</span>. Ran in production.</li>
           <li><strong>Multi-tenancy on a legacy codebase <span class="n">in a month</span></strong>, with per-tenant branding and <span class="n">6 roles, ~30</span> scoped permissions.</li>
           <li><strong>Audit of <span class="n">~2M</span> counterparty records</strong> with an entity resolution rule: no false merges, borderline cases go to manual review.</li>
-          <li><strong>Two customs integration modes</strong> behind one feature flag, so a production rollback is a single toggle.</li>
         </ul>
         <div>
           <figure class="mb">
-            <img src="images/ics-dashboard.jpg" width="1280" height="637" alt="Dashboard with quick actions, counters and a shipments chart" loading="lazy">
+            <a href="images/ics-dashboard.jpg" title="Open full size"><img src="images/ics-dashboard.jpg" width="1280" height="637" alt="Dashboard with quick actions, counters and a shipments chart" loading="lazy"></a>
             <figcaption>Dashboard: unread customs decisions, counters, 7-day shipment chart.</figcaption>
           </figure>
           <div class="shots two">
             <figure>
-              <img src="images/ics-branding.jpg" width="1280" height="696" alt="Tenant branding settings with colour pickers and logo preview" loading="lazy">
+              <a href="images/ics-branding.jpg" title="Open full size"><img src="images/ics-branding.jpg" width="1280" height="696" alt="Tenant branding settings with colour pickers and logo preview" loading="lazy"></a>
               <figcaption>Tenant branding with live preview.</figcaption>
             </figure>
             <figure>
-              <img src="images/ics-shipments.jpg" width="1280" height="645" alt="Free shipments import table with filters and bulk actions" loading="lazy">
+              <a href="images/ics-shipments.jpg" title="Open full size"><img src="images/ics-shipments.jpg" width="1280" height="645" alt="Free shipments import table with filters and bulk actions" loading="lazy"></a>
               <figcaption>Free shipments, bulk actions.</figcaption>
             </figure>
           </div>
@@ -481,7 +492,7 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
     <section class="redesign" aria-labelledby="redesign-title">
       <div class="sec-head">
         <span class="sec-no">Before and after</span>
-        <h2 id="redesign-title" style="font-size:clamp(24px,3.6vw,34px)">Redesigns: drag to compare</h2>
+        <h2 id="redesign-title" class="h2-sm">Redesigns: drag to compare</h2>
       </div>
       <div class="ba-pair">
         <div>
@@ -512,11 +523,11 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
     </section>
 
     <!-- public site -->
-    <article class="project" id="site" aria-labelledby="site-title" style="margin-top:36px">
+    <article class="project spaced" id="site" aria-labelledby="site-title">
       <div class="p-head"><h3 id="site-title">ProCargo public site</h3><span class="flag">Closed source</span></div>
       <p class="oneliner">WordPress marketing site that hands logged-in users to the Laravel app without a visible seam.</p>
       <ul class="spec">
-        <li><b>Role</b>Owner</li>
+        <li><b>Role</b>Developer, built and maintained it</li>
         <li><b>Stack</b>WordPress, Laravel</li>
         <li><b>Built</b>in 2 months, maintained for a year</li>
       </ul>
@@ -527,9 +538,9 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
           <li><strong>Tariff calculator</strong> and pricing tables fed from the application, two languages, both themes.</li>
         </ul>
         <div class="shots three">
-          <figure><img src="images/wp-home.jpg" width="1280" height="658" alt="Landing page with hero image and quick cargo actions" loading="lazy"><figcaption>Landing page.</figcaption></figure>
-          <figure><img src="images/wp-tariffs.jpg" width="1280" height="828" alt="Shipping tariffs page with a price calculator" loading="lazy"><figcaption>Tariffs.</figcaption></figure>
-          <figure><img src="images/wp-create-shipment.jpg" width="1280" height="624" alt="Simplified shipment creation form" loading="lazy"><figcaption>New shipment.</figcaption></figure>
+          <figure><a href="images/wp-home.jpg" title="Open full size"><img src="images/wp-home.jpg" width="1280" height="658" alt="Landing page with hero image and quick cargo actions" loading="lazy"></a><figcaption>Landing page.</figcaption></figure>
+          <figure><a href="images/wp-tariffs.jpg" title="Open full size"><img src="images/wp-tariffs.jpg" width="1280" height="828" alt="Shipping tariffs page with a price calculator" loading="lazy"></a><figcaption>Tariffs.</figcaption></figure>
+          <figure><a href="images/wp-create-shipment.jpg" title="Open full size"><img src="images/wp-create-shipment.jpg" width="1280" height="624" alt="Simplified shipment creation form" loading="lazy"></a><figcaption>New shipment.</figcaption></figure>
         </div>
       </div>
     </article>
@@ -551,8 +562,8 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
     </div>
     <ol>
       <li>
-        <h3><span>A</span>Ownership end to end</h3>
-        <p>Schema, queues, API, interface, release. I took over a legacy product and became the developer who knows every part of it.</p>
+        <h3><span>A</span>Backend to interface</h3>
+        <p>Schema, queues, API, interface, release. I took over a legacy product and became its main developer, the one who knows every part of it.</p>
       </li>
       <li>
         <h3><span>B</span>Reliability by default</h3>
@@ -560,12 +571,12 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
         <p class="tags">idempotency keys · Redis locks · lockForUpdate · transactional outbox · state machines · fail-closed webhooks</p>
       </li>
       <li>
-        <h3><span>C</span>AI-assisted, human-owned</h3>
-        <p>Claude Code every day, with role-based subagents to plan, implement, test and review. It makes me faster; the judgment stays mine, and I never merge a diff I don't understand.</p>
+        <h3><span>C</span>AI-assisted, human-reviewed</h3>
+        <p>Daily Claude Code workflow with role-based subagents to plan, implement, test and review. I review every diff myself.</p>
       </li>
       <li>
-        <h3><span>D</span>Fast to learn</h3>
-        <p>Laravel from zero to production tasks in about a week at Prof-IT. WordPress learned and a public site shipped in two months.</p>
+        <h3><span>D</span>Ships new things fast</h3>
+        <p>incident-core v1 in 2 weeks, multi-tenancy on a legacy codebase in a month, a WordPress site in 2 months.</p>
       </li>
     </ol>
   </div>
@@ -580,12 +591,12 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
     </div>
     <div class="story">
       <div class="quote">
-        <p class="lab">Prof-IT, outsourcing, Jan 2023 to Apr 2025</p>
+        <p class="lab">Prof-IT, outsourcing, Jan 2023 - Apr 2025</p>
         <p class="big">I came in for one freelance order. The CTO liked the result and hired me full-time.</p>
         <ol class="timeline">
-          <li><b>Week 1</b><span>NotAI prototype built as a freelance order.</span></li>
-          <li><b>1-2 months</b><span>In production: Unity WebGL game, TypeScript integration with Telegram, Laravel backend, with a PM and two QA.</span></li>
-          <li><b>Hired</b><span>Asked to learn Laravel. Production tasks within a week, confident middle-level work within about two months.</span></li>
+          <li><b>Week 1</b><span>NotAI prototype as a freelance order: Unity WebGL game, TypeScript Telegram integration, Laravel backend.</span></li>
+          <li><b>2 months</b><span>Released, with a PM and two QA.</span></li>
+          <li><b>Hired</b><span>The CTO hired me full-time and asked me to go deeper into PHP and Laravel.</span></li>
           <li><b>After</b><span>Internal CRM and ERP on Laravel, Vue 3, PostgreSQL, Docker. A heavy report cut from 2.5 s to 1 s.</span></li>
         </ol>
       </div>
@@ -593,13 +604,13 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
         <article class="mini" aria-labelledby="notai-title">
           <h3 id="notai-title">NotAI, 10M+ registered users</h3>
           <p class="meta">Client project at Prof-IT · Telegram Mini App</p>
-          <p>Built the game part of a public Telegram Mini App: the data model and background processing for a large concurrent audience.
+          <p>A public client Telegram Mini App. I built the Unity WebGL game, the TypeScript Telegram integration and the Laravel backend, with the data model and background processing for a large concurrent audience.
             <a href="https://www.kucoin.com/learn/trading/what-is-notai-telegram-bot-and-how-to-claim-its-airdrop">About the app</a></p>
         </article>
         <article class="mini" aria-labelledby="sun-title">
           <h3 id="sun-title">Country Balls: Orc Destroyer</h3>
-          <p class="meta">Side project · SunLab Games, co-founder · Unity, C# · 2022 to 2023</p>
-          <p>An Android game from a two-person indie studio, about 5,000 installs with no paid marketing.
+          <p class="meta">Side project · SunLab Games · Unity, C# · 2022 - 2023</p>
+          <p>An Android game from a two-person indie studio I co-founded, about 5,000 installs with no paid marketing.
             <a href="https://apkpure.com/country-balls-orc-destroyer/com.SunlabGames.OrcDestroyer">On APKPure</a></p>
         </article>
       </div>
@@ -608,12 +619,12 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
 </section>
 
 <!-- open source -->
-<section class="sec" id="oss" aria-labelledby="oss-title" style="padding-top:24px">
+<section class="sec tight" id="oss" aria-labelledby="oss-title">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-no">04 / Open source</span>
       <h2 id="oss-title">Code you can read</h2>
-      <p>All three repositories have green CI.</p>
+      <p>All three repositories have green CI. React and Next.js in side projects.</p>
     </div>
     <div class="repos">
       <article class="repo flagship" aria-labelledby="r1">
@@ -621,33 +632,33 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
           <div>
             <div class="top"><h3 id="r1">laravel-telegram-helpdesk</h3><span class="badge">Flagship</span></div>
             <p>A Telegram support desk built for PSP Express and published with the company's permission, company data removed.
-              Every request becomes a ticket thread in an operator forum group.</p>
+              Every client gets a forum topic in the operators' group, and operators answer right there.</p>
             <ul class="spec">
               <li>Laravel 12</li><li>Nutgram</li><li>Sanctum REST API</li>
             </ul>
-            <ul class="outcomes" style="margin-bottom:18px">
-              <li>Ticket threads, broadcasts, 1-5 satisfaction rating.</li>
+            <ul class="outcomes">
+              <li>Ticket topics, broadcasts, 1-5 satisfaction rating.</li>
               <li>Working schedule with holiday overrides.</li>
               <li>Webhook secret and update deduplication.</li>
             </ul>
             <a class="go" href="https://github.com/CaptainAlexxxx/laravel-telegram-helpdesk">View on GitHub</a>
           </div>
           <div class="shots phones">
-            <figure><img src="images/bot-ticket.jpg" width="490" height="593" alt="Ticket card in the operator group and the closing confirmation" loading="lazy"><figcaption>Ticket card.</figcaption></figure>
-            <figure><img src="images/bot-broadcast.jpg" width="451" height="805" alt="Three-step broadcast wizard in Telegram" loading="lazy"><figcaption>Broadcast wizard.</figcaption></figure>
-            <figure><img src="images/bot-schedule.jpg" width="459" height="651" alt="Working schedule management and support rating buttons" loading="lazy"><figcaption>Schedule and rating.</figcaption></figure>
+            <figure><a href="images/bot-ticket.jpg" title="Open full size"><img src="images/bot-ticket.jpg" width="490" height="593" alt="Ticket card in the operator group and the closing confirmation" loading="lazy"></a><figcaption>Ticket card.</figcaption></figure>
+            <figure><a href="images/bot-broadcast.jpg" title="Open full size"><img src="images/bot-broadcast.jpg" width="451" height="805" alt="Three-step broadcast wizard in Telegram" loading="lazy"></a><figcaption>Broadcast wizard.</figcaption></figure>
+            <figure><a href="images/bot-schedule.jpg" title="Open full size"><img src="images/bot-schedule.jpg" width="459" height="651" alt="Working schedule management and support rating buttons" loading="lazy"></a><figcaption>Schedule and rating.</figcaption></figure>
           </div>
         </div>
       </article>
       <article class="repo" aria-labelledby="r2">
         <div class="top"><h3 id="r2">laravel-ephemeral-files</h3></div>
-        <p>Files that expire after 24 hours, with deletion notices sent through a transactional outbox and a MySQL race test in CI. A test assignment that required documenting AI usage.</p>
+        <p>Files that expire after 24 hours, with deletion notices sent through a transactional outbox and a MySQL race test in CI.</p>
         <ul class="spec"><li>Laravel 13</li><li>PHP 8.4</li><li>RabbitMQ</li><li>Docker Compose</li></ul>
         <a class="go" href="https://github.com/CaptainAlexxxx/laravel-ephemeral-files">View on GitHub</a>
       </article>
       <article class="repo" aria-labelledby="r3">
         <div class="top"><h3 id="r3">n5deal-marketplace-prototype</h3></div>
-        <p>Marketplace prototype with three roles, faceted search, fit scoring and moderation. A test assignment.</p>
+        <p>Marketplace prototype with three roles, faceted search, fit scoring and moderation.</p>
         <ul class="spec"><li>Next.js 15</li><li>TypeScript</li><li>Prisma</li><li>Vitest</li></ul>
         <a class="go" href="https://github.com/CaptainAlexxxx/n5deal-marketplace-prototype">View on GitHub</a>
       </article>
@@ -659,14 +670,15 @@ figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap">
     <h2 id="contact-title">Looking for a Laravel and Vue developer?</h2>
-    <p>Available now for remote work, full-time or on a B2B contract. Middle or strong middle roles, backend or full-stack. References on request.</p>
+    <p>Available now for remote work: employment or a B2B contract, backend or full-stack roles. References on request.</p>
     <ul class="ctas">
       <li><a class="btn primary" href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
-      <li><a class="btn" href="https://t.me/CaptainAlexxx">Telegram</a></li>
+      <li><a class="btn" href="CV_Oleksii_Ilienko.pdf" download>Download CV <span class="k">PDF</span></a></li>
       <li><a class="btn" href="https://github.com/CaptainAlexxxx">GitHub</a></li>
       <li><a class="btn" href="https://www.linkedin.com/in/oleksii-ilienko-laravel">LinkedIn</a></li>
+      <li><a class="btn" href="https://t.me/CaptainAlexxx">Telegram</a></li>
     </ul>
-    <p class="fine">+380 99 143 25 55 · Kyiv, Ukraine · BSc, Igor Sikorsky Kyiv Polytechnic Institute, 2024</p>
+    <p class="fine">+380 99 143 25 55 · Kyiv, Ukraine (UTC+2) · BSc, Igor Sikorsky Kyiv Polytechnic Institute, 2024 · <a href="CV_Oleksii_Ilienko_UA.pdf" download>CV (UA)</a></p>
   </div>
 </section>
 
