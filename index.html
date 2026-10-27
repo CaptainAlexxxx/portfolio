@@ -3,508 +3,714 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oleksii Ilienko: selected work</title>
-<meta name="description" content="Selected work of a full-stack Laravel, Vue 3 and TypeScript developer: customs clearance, shipment tracking, multi-tenancy, service integrations and legacy refactoring.">
+<title>Oleksii Ilienko: full-stack PHP developer, Laravel, Vue 3, TypeScript</title>
+<meta name="description" content="Full-stack PHP developer: Laravel, Vue 3, TypeScript. Reliable integrations, async queue pipelines and fast interfaces for production B2B products. Remote, available now.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+/*
+  Design system shared with the CV.
+  Changes from the base palette:
+  - mute darkened from #666C73 to #5A6067: the old value is 4.39:1 on paper #E7EAEC and fails WCAG AA
+    for body text; #5A6067 is 5.26:1 on paper and 6.36:1 on card.
+  - one supporting tint added, --tint #F6E3E1, a light accent wash for highlights.
+    Accent on tint is 5.07:1, ink on tint 14.66:1.
+  - on ink backgrounds text uses paper (14.99:1) and --mute-dark #9AA1A8 (6.93:1);
+    the accent becomes --accent-on-ink #F08A82 (7.47:1) so it stays readable.
+*/
 :root{
   --paper:#E7EAEC;
   --card:#FFFFFF;
   --ink:#14161A;
-  --mute:#666C73;
+  --mute:#5A6067;
   --line:#C6CBD0;
   --accent:#B32F27;
-  --maxw:1080px;
+  --tint:#F6E3E1;
+  --mute-dark:#9AA1A8;
+  --accent-on-ink:#F08A82;
+  --maxw:1160px;
+  --display:"Archivo",Impact,"Arial Narrow",sans-serif;
+  --text:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth; scroll-padding-top:72px}
 body{
   margin:0; background:var(--paper); color:var(--ink);
-  font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
-  font-size:16px; line-height:1.55;
+  font-family:var(--text); font-size:16px; line-height:1.55;
   -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
-.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent); outline-offset:3px}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
+@media (min-width:700px){.wrap{padding:0 32px}}
+.mono{font-family:var(--mono)}
+code{font-family:var(--mono); font-size:.88em; background:var(--paper); padding:1px 5px; border-radius:3px}
+.skip{position:absolute; left:-9999px; top:8px; background:var(--ink); color:var(--paper); padding:8px 12px; z-index:20}
+.skip:focus{left:8px}
 
-/* ---------- header ---------- */
-.masthead{border-bottom:1px solid var(--line); padding:56px 0 28px}
-.masthead h1{
-  font-family:"Archivo",Impact,sans-serif; font-weight:800;
-  font-size:clamp(34px,6.2vw,62px); line-height:.98; letter-spacing:-.025em;
-  margin:0 0 14px;
-}
-.masthead .role{
-  font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--accent); margin:0 0 22px;
-}
-.masthead p.lede{max-width:60ch; margin:0 0 26px; font-size:17px}
-.contacts{
-  font-family:"IBM Plex Mono",monospace; font-size:13px;
-  display:flex; flex-wrap:wrap; gap:8px 20px; margin:0; padding:0; list-style:none;
-}
-.contacts a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line)}
-.contacts a:hover{color:var(--accent); border-color:var(--accent)}
+/* top bar */
+.bar{position:sticky; top:0; z-index:10; background:rgba(231,234,236,.94); border-bottom:1px solid var(--line);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px)}
+.bar .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; height:56px}
+.bar .who{font-family:var(--display); font-weight:800; font-size:17px; letter-spacing:-.01em; text-decoration:none}
+.bar nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
+.bar nav a{font-family:var(--mono); font-size:12.5px; text-decoration:none; color:var(--mute)}
+.bar nav a:hover{color:var(--ink)}
+.bar .hire{font-family:var(--mono); font-size:12.5px; font-weight:600; text-decoration:none; color:#fff;
+  background:var(--accent); padding:8px 12px; border-radius:3px; white-space:nowrap}
+.bar .hire:hover{background:var(--ink)}
+@media (max-width:820px){.bar nav{display:none}}
 
-/* ---------- key numbers ---------- */
-.stats{border-bottom:1px solid var(--line); padding:22px 0}
-.stats ul{
-  list-style:none; margin:0; padding:0;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px 24px;
+/* hero */
+.hero{padding:28px 0 40px; border-bottom:1px solid var(--line)}
+.hero .grid{display:grid; gap:36px}
+@media (min-width:980px){.hero{padding:56px 0 64px}.hero .grid{grid-template-columns:1.25fr 1fr; gap:56px; align-items:start}}
+.status{display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:12.5px;
+  background:var(--card); border:1px solid var(--line); border-radius:999px; padding:6px 14px 6px 10px; margin:0 0 26px}
+.status .dot{width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--tint); flex:none}
+.status b{font-weight:600}
+.eyebrow{font-family:var(--mono); font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--mute); margin:0 0 10px}
+.hero h1{font-family:var(--display); font-weight:900; font-size:clamp(38px,5.6vw,66px); line-height:.96;
+  letter-spacing:-.035em; margin:0 0 18px}
+.hero h1 .stack{display:block; color:var(--accent)}
+.hero .value{font-size:clamp(18px,2.2vw,21px); line-height:1.45; max-width:34em; margin:0 0 28px}
+.hero .value b{font-weight:600; background:linear-gradient(transparent 62%,var(--tint) 62%)}
+.ctas{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 18px; padding:0; list-style:none}
+.btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:14px; font-weight:500;
+  text-decoration:none; padding:12px 16px; border-radius:3px; border:1.5px solid var(--ink); background:var(--card); color:var(--ink)}
+.btn:hover{background:var(--ink); color:var(--paper)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+.btn.primary:hover{background:var(--ink); border-color:var(--ink)}
+.btn .k{color:inherit; opacity:.7; font-size:12px}
+.ledger dt{min-width:3.9em}
+@media (max-width:560px){
+  .hero .ctas{display:grid; grid-template-columns:repeat(3,1fr)}
+  .hero .ctas li:first-child{grid-column:1/-1}
+  .hero .ctas .btn{justify-content:center; width:100%; padding:12px 8px}
+  .btn .k{display:none}
+  .ledger dt{min-width:0}
+  .status{font-size:12px; border-radius:6px}
 }
-.stats b{
-  display:block; font-family:"Archivo",sans-serif; font-weight:800;
-  font-size:30px; line-height:1.1; letter-spacing:-.02em; color:var(--accent);
-}
-.stats span{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--mute)}
+.fine{font-family:var(--mono); font-size:12.5px; color:var(--mute); margin:0}
 
-/* ---------- manifest index ---------- */
-.manifest{border-bottom:1px solid var(--line); padding:20px 0}
-.manifest ol{
-  list-style:none; margin:0; padding:0;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:2px 24px;
-}
-.manifest a{
-  display:flex; justify-content:space-between; gap:12px;
-  font-family:"IBM Plex Mono",monospace; font-size:13px;
-  color:var(--mute); text-decoration:none; padding:6px 0;
-  border-bottom:1px solid transparent;
-}
-.manifest a:hover{color:var(--ink); border-color:var(--ink)}
-.manifest a span:last-child{color:var(--accent)}
+/* proof ledger */
+.ledger{background:var(--ink); color:var(--paper); border-radius:6px; padding:8px 22px 4px; position:relative}
+.ledger::before{content:""; position:absolute; left:0; top:22px; bottom:22px; width:4px; background:var(--accent)}
+.ledger h2{font-family:var(--mono); font-weight:500; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--mute-dark); margin:14px 0 4px}
+.ledger dl{margin:0}
+.ledger .row{display:flex; flex-wrap:wrap; gap:4px 16px; align-items:baseline;
+  padding:15px 0; border-top:1px solid #2C3036}
+.ledger .row:first-child{border-top:0}
+.ledger dt{font-family:var(--display); font-weight:900; font-size:clamp(34px,4.6vw,46px); line-height:1;
+  letter-spacing:-.03em; color:var(--paper); white-space:nowrap}
+.ledger dt small{font-size:.5em; letter-spacing:-.01em; color:var(--accent-on-ink); margin-left:2px}
+.ledger dd{margin:0; font-size:14px; line-height:1.4; color:var(--mute-dark); flex:1 1 220px}
+.ledger dd b{display:block; color:var(--paper); font-weight:600; font-size:15px}
 
-/* ---------- projects ---------- */
-.project{padding:64px 0 8px; border-bottom:1px solid var(--line)}
-.project:last-of-type{border-bottom:0}
-.project h2{
-  font-family:"Archivo",sans-serif; font-weight:800;
-  font-size:clamp(24px,3.6vw,36px); letter-spacing:-.02em; margin:0 0 10px;
-}
-.specline{
-  font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--mute);
-  border-top:2px solid var(--ink); border-bottom:1px solid var(--line);
-  padding:8px 0; margin:0 0 26px;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:4px 24px;
-}
-.specline b{color:var(--ink); font-weight:500}
-.project p.intro{max-width:66ch; margin:0 0 20px}
-.did{margin:0 0 32px; padding:0; list-style:none; max-width:68ch}
-.did li{padding-left:22px; position:relative; margin-bottom:9px}
-.did li::before{
-  content:"-"; position:absolute; left:0; color:var(--accent);
-  font-family:"IBM Plex Mono",monospace;
-}
-.did b{font-weight:600}
-.did a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--accent)}
-.did a:hover{color:var(--accent)}
+/* section heads */
+section{scroll-margin-top:64px}
+.sec{padding:64px 0 24px}
+.sec-head{display:grid; gap:8px; margin:0 0 30px}
+.sec-no{font-family:var(--mono); font-size:13px; color:var(--accent); letter-spacing:.08em}
+.sec-head h2{font-family:var(--display); font-weight:800; font-size:clamp(30px,5vw,48px); line-height:1;
+  letter-spacing:-.03em; margin:0}
+.sec-head p{margin:4px 0 0; color:var(--mute); max-width:60ch}
 
-/* ---------- shots ---------- */
-figure{margin:0 0 26px; background:var(--card); border:1px solid var(--line)}
+/* how I work */
+.how{background:var(--ink); color:var(--paper); padding:56px 0 60px}
+.how .sec-head h2{color:var(--paper)}
+.how .sec-no{color:var(--accent-on-ink)}
+.how ol{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:#2C3036; border:1px solid #2C3036}
+@media (min-width:700px){.how ol{grid-template-columns:1fr 1fr}}
+@media (min-width:1080px){.how ol{grid-template-columns:repeat(4,1fr)}}
+.how li{background:var(--ink); padding:22px 20px 24px}
+.how h3{font-family:var(--display); font-weight:800; font-size:21px; letter-spacing:-.01em; margin:0 0 10px; line-height:1.15}
+.how h3 span{display:block; font-family:var(--mono); font-weight:500; font-size:12px; color:var(--accent-on-ink); letter-spacing:.08em; margin-bottom:10px}
+.how p{margin:0 0 10px; font-size:15px; color:#C9CED3}
+.how p:last-child{margin-bottom:0}
+.how .tags{font-family:var(--mono); font-size:12px; color:var(--mute-dark); line-height:1.7}
+
+/* project card */
+.project{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:22px 18px 8px; margin:0 0 28px}
+@media (min-width:700px){.project{padding:34px 34px 14px}}
+.p-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin:0 0 6px}
+.p-head h3{font-family:var(--display); font-weight:800; font-size:clamp(26px,3.6vw,36px); letter-spacing:-.025em; margin:0; line-height:1.05}
+.flag{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--mute);
+  border:1px solid var(--line); padding:3px 8px; border-radius:3px; white-space:nowrap}
+a.flag{color:#fff; background:var(--accent); border-color:var(--accent); text-decoration:none}
+a.flag:hover{background:var(--ink); border-color:var(--ink)}
+.oneliner{font-size:18px; line-height:1.45; margin:0 0 18px; max-width:52ch}
+.spec{display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0 0 24px; padding:0}
+.spec li{font-family:var(--mono); font-size:12.5px; background:var(--paper); border-radius:3px; padding:5px 10px; line-height:1.35}
+.spec li b{font-weight:500; color:var(--mute); margin-right:6px}
+.p-body{display:grid; gap:26px}
+@media (min-width:980px){.p-body:not(.stacked){grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:40px; align-items:start}}
+.outcomes{list-style:none; margin:0; padding:0; counter-reset:o}
+.outcomes li{position:relative; padding:12px 0 12px 34px; border-top:1px solid var(--line); line-height:1.45}
+.outcomes li:first-child{border-top:0; padding-top:0}
+.outcomes li::before{counter-increment:o; content:counter(o,decimal-leading-zero); position:absolute; left:0; top:14px;
+  font-family:var(--mono); font-size:11.5px; color:var(--accent)}
+.outcomes li:first-child::before{top:2px}
+@media (min-width:980px){
+  .stacked .outcomes{display:grid; grid-template-columns:repeat(3,1fr); gap:0 28px}
+  .stacked .outcomes li{border-top:0; padding-top:0}
+  .stacked .outcomes li::before{top:2px}
+}
+.outcomes strong{font-weight:600}
+.outcomes .n{font-family:var(--display); font-weight:800; color:var(--accent); font-size:1.08em; letter-spacing:-.01em}
+
+/* disclosure */
+details.deep{border-top:2px solid var(--ink); margin:26px 0 18px}
+details.deep summary{cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px;
+  padding:14px 0; font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.04em}
+details.deep summary::-webkit-details-marker{display:none}
+details.deep summary .hint{font-weight:400; color:var(--mute); font-size:12.5px}
+details.deep summary::after{content:"+"; font-family:var(--mono); font-size:20px; line-height:1; color:var(--accent);
+  width:28px; height:28px; display:grid; place-items:center; border:1.5px solid var(--accent); border-radius:50%; flex:none}
+details.deep[open] summary::after{content:"\2212"}
+details.deep summary:hover{color:var(--accent)}
+.deep-grid{display:grid; gap:18px 36px; padding:4px 0 18px}
+@media (min-width:860px){.deep-grid{grid-template-columns:1fr 1fr}}
+.deep-grid h4{font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin:0 0 6px; color:var(--accent)}
+.deep-grid p{margin:0; font-size:15px; line-height:1.55}
+
+/* figures */
+figure{margin:0; background:var(--card); border:1px solid var(--line); border-radius:4px; overflow:hidden}
 figure img{display:block; width:100%; height:auto}
-figcaption{
-  font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--mute);
-  padding:9px 12px; border-top:1px solid var(--line);
-}
-.grid2{display:grid; grid-template-columns:1fr 1fr; gap:26px}
-.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
-.grid2 figure,.grid3 figure{margin-bottom:0}
-.phone figure{max-width:480px; margin-inline:auto; width:100%}
-.phone img{image-rendering:auto}
+figcaption{font-family:var(--mono); font-size:12px; color:var(--mute); padding:8px 12px; border-top:1px solid var(--line); line-height:1.45}
+.shots{display:grid; gap:16px}
+.shots.two{grid-template-columns:1fr 1fr}
+.shots.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:700px){.shots.three{grid-template-columns:1fr}.shots{gap:10px}}
+.shots.phones{grid-template-columns:repeat(3,1fr); align-items:start}
+@media (max-width:700px){.shots.phones{grid-template-columns:1fr 1fr}.shots.phones figure:last-child{grid-column:1/-1; max-width:50%; justify-self:center}}
+.mb{margin-bottom:16px}
 
-/* ---------- before/after slider ---------- */
-.ba{margin:0 0 12px}
-.ba-frame{
-  position:relative; overflow:hidden; user-select:none;
-  border:1px solid var(--line); background:var(--card); line-height:0;
-  touch-action:pan-y;
-}
-.ba-frame img{display:block; width:100%; height:auto}
+/* before/after */
+.redesign{padding:8px 0 8px}
+.ba-pair{display:grid; gap:28px}
+@media (min-width:980px){.ba-pair{grid-template-columns:1fr 1fr}}
+.ba-frame{position:relative; overflow:hidden; user-select:none; border:1px solid var(--line); border-radius:4px;
+  background:var(--card); line-height:0; touch-action:pan-y; cursor:ew-resize}
+.ba-frame img{display:block; width:100%; height:auto; pointer-events:none}
 .ba-top{position:absolute; inset:0; clip-path:inset(0 50% 0 0)}
-.ba-top img{width:100%; height:auto; display:block}
-.ba-handle{
-  position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--accent);
-  transform:translateX(-1px); pointer-events:none;
-}
-.ba-handle::after{
-  content:"◀ ▶"; position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  background:var(--accent); color:#fff; font-family:"IBM Plex Mono",monospace;
-  font-size:11px; padding:5px 9px; white-space:nowrap; border-radius:2px;
-}
-.ba-tag{
-  position:absolute; bottom:10px; font-family:"IBM Plex Mono",monospace; font-size:11px;
-  letter-spacing:.1em; text-transform:uppercase; background:var(--ink); color:#fff;
-  padding:4px 8px; border-radius:2px;
-}
+.ba-handle{position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--accent); transform:translateX(-1px); pointer-events:none}
+.ba-handle::after{content:""; position:absolute; top:50%; left:50%; width:34px; height:34px; transform:translate(-50%,-50%);
+  border-radius:50%; background:var(--accent); box-shadow:0 2px 8px rgba(20,22,26,.3)}
+.ba-handle::before{content:""; position:absolute; top:50%; left:50%; width:8px; height:12px; transform:translate(-50%,-50%);
+  border-left:2px solid #fff; border-right:2px solid #fff; z-index:1}
+.ba-tag{position:absolute; top:10px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  background:var(--ink); color:#fff; padding:4px 8px; border-radius:2px; line-height:1.3}
 .ba-tag.l{left:10px}
 .ba-tag.r{right:10px; background:var(--accent)}
-.ba input[type=range]{width:100%; margin:10px 0 0; accent-color:var(--accent)}
-.ba-note{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--mute); margin:0 0 30px}
+.ba input[type=range]{width:100%; margin:10px 0 4px; accent-color:var(--accent)}
+.ba-note{font-size:14.5px; color:var(--mute); margin:0}
+.ba-note b{color:var(--ink); font-weight:600}
 
-/* ---------- footer ---------- */
-.foot{padding:44px 0 70px; font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--mute)}
-.foot a{color:var(--ink)}
-.tag-closed{
-  display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:11px;
-  letter-spacing:.08em; text-transform:uppercase; color:var(--mute);
-  border:1px solid var(--line); padding:3px 8px; margin-left:10px; vertical-align:middle;
-}
-.tag-open{
-  display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:11px;
-  letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--accent);
-  padding:4px 9px; margin-left:10px; vertical-align:middle; text-decoration:none;
-}
-a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+/* story + side */
+.story{display:grid; gap:20px; margin:0 0 28px}
+@media (min-width:980px){.story{grid-template-columns:1.2fr 1fr}}
+.quote{background:var(--tint); border-left:4px solid var(--accent); border-radius:0 6px 6px 0; padding:22px 22px 20px}
+.quote .lab{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin:0 0 10px}
+.quote p.big{font-family:var(--display); font-weight:800; font-size:clamp(22px,2.8vw,28px); line-height:1.15; letter-spacing:-.02em; margin:0 0 14px}
+.timeline{list-style:none; margin:0; padding:0}
+.timeline li{display:grid; grid-template-columns:96px 1fr; gap:12px; padding:9px 0; border-top:1px solid rgba(179,47,39,.25); font-size:15px}
+.timeline li:first-child{border-top:0}
+.timeline b{font-family:var(--mono); font-weight:600; font-size:12.5px; color:var(--accent); padding-top:2px}
+.small-cards{display:grid; gap:20px}
+.mini{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:20px}
+.mini h3{font-family:var(--display); font-weight:800; font-size:21px; letter-spacing:-.015em; margin:0 0 4px; line-height:1.15}
+.mini .meta{font-family:var(--mono); font-size:12px; color:var(--mute); margin:0 0 10px}
+.mini p{margin:0 0 8px; font-size:15px}
+.mini a{color:var(--accent); font-weight:500}
 
-@media (max-width:760px){
-  .grid2,.grid3{grid-template-columns:1fr}
-  .masthead{padding:36px 0 22px}
-  .project{padding:44px 0 8px}
+/* open source */
+.repos{display:grid; gap:20px}
+@media (min-width:980px){.repos{grid-template-columns:1fr 1fr}.repos .flagship{grid-column:1/-1}}
+.repo{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:22px 20px 20px; display:flex; flex-direction:column}
+.repo.flagship{border:2px solid var(--ink)}
+.repo .top{display:flex; justify-content:space-between; gap:12px; align-items:baseline; flex-wrap:wrap; margin:0 0 8px}
+.repo h3{font-family:var(--mono); font-weight:600; font-size:clamp(16px,2vw,19px); margin:0; word-break:break-word}
+.repo .badge{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--ink); padding:3px 8px; border-radius:3px}
+.repo p{margin:0 0 12px}
+.repo .spec{margin:0 0 16px}
+.repo .go{margin-top:auto; font-family:var(--mono); font-size:13.5px; font-weight:600; color:var(--accent); text-decoration:none; align-self:flex-start; border-bottom:1.5px solid currentColor; padding-bottom:1px}
+.repo .go:hover{color:var(--ink)}
+.flag-body{display:grid; gap:22px}
+@media (min-width:980px){.flag-body{grid-template-columns:1fr 1.25fr; gap:36px; align-items:start}}
+
+/* contact */
+.contact{background:var(--accent); color:#fff; padding:56px 0; margin-top:48px}
+.contact h2{font-family:var(--display); font-weight:900; font-size:clamp(34px,6vw,64px); line-height:.98; letter-spacing:-.035em; margin:0 0 14px}
+.contact p{margin:0 0 24px; font-size:18px; max-width:40em}
+.contact .btn{border-color:#fff; background:transparent; color:#fff}
+.contact .btn:hover{background:#fff; color:var(--accent)}
+.contact .btn.primary{background:#fff; color:var(--accent); border-color:#fff}
+.contact .btn.primary:hover{background:var(--ink); color:#fff; border-color:var(--ink)}
+.contact .fine{color:#fff; font-size:13px; margin-top:4px}
+
+.foot{padding:28px 0 48px; font-family:var(--mono); font-size:12.5px; color:var(--mute)}
+.foot p{margin:0 0 8px; max-width:80ch}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none !important; animation:none !important}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+@media print{
+  @page{margin:14mm}
+  body{background:#fff; font-size:10.5pt}
+  .bar,.skip,.ba input,.ba-handle,.ba-top,.contact .ctas,.shots,.mb{display:none !important}
+  .hero,.sec{padding:12pt 0}
+  .how,.contact{background:#fff; color:var(--ink); padding:12pt 0}
+  .how li{background:#fff}
+  .how p,.how .tags,.how h3,.how .sec-head h2{color:var(--ink)}
+  .ledger{background:#fff; color:var(--ink); border:1px solid var(--line)}
+  .ledger dt,.ledger dd,.ledger dd b{color:var(--ink)}
+  .contact h2,.contact p,.contact .fine{color:var(--ink)}
+  .project,.repo,.mini,figure{break-inside:avoid; border-color:#999}
+  details.deep summary::after{display:none}
+  a[href^="http"]::after{content:" (" attr(href) ")"; font-size:8pt; color:var(--mute); word-break:break-all}
+  .ba-tag{display:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#work">Skip to work</a>
 
-<header class="masthead">
+<header class="bar">
   <div class="wrap">
-    <p class="role">Oleksii Ilienko · Full-stack developer · Laravel, Vue 3, TypeScript · Kyiv</p>
-    <h1>Customs, cargo<br>and the software<br>that moves it.</h1>
-    <p class="lede">Three years of commercial Laravel and Vue 3 with TypeScript. For the last year I owned ProCargo and led the ICS
-      customs portal in its final months, both B2B products in customs clearance and logistics: architecture,
-      integrations, interface and releases. We were a two-person team with the Head of Engineering, who reviewed my code. Both products lived in an ecosystem of internal services: ERP,
-      warehouse system, customs gateway, incident service. Below is what they actually look like.</p>
-    <ul class="contacts">
-      <li><a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
-      <li><a href="https://t.me/CaptainAlexxx">Telegram</a></li>
-      <li><a href="https://github.com/CaptainAlexxxx">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/oleksii-ilienko-laravel">LinkedIn</a></li>
-    </ul>
+    <a class="who" href="#top">Oleksii Ilienko</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#how">How I work</a></li>
+        <li><a href="#earlier">Earlier</a></li>
+        <li><a href="#oss">Open source</a></li>
+      </ul>
+    </nav>
+    <a class="hire" href="mailto:alexthearts@gmail.com">Email me</a>
   </div>
 </header>
 
-<section class="stats" aria-label="Key numbers">
-  <div class="wrap">
-    <ul>
-      <li><b>~10×</b><span>faster background job pipeline</span></li>
-      <li><b>7</b><span>systems integrated across both products: ERP, OMS/WMS, customs, fiscal…</span></li>
-      <li><b>~1M</b><span>shipments in the customs portal</span></li>
-      <li><b>10M+</b><span>registered users, NotAI Telegram Mini App</span></li>
-    </ul>
+<main id="top">
+
+<!-- hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap grid">
+    <div>
+      <p class="status"><span class="dot" aria-hidden="true"></span><span><b>Available now</b>: remote, full-time or B2B contract</span></p>
+      <p class="eyebrow">Oleksii Ilienko, Kyiv</p>
+      <h1 id="hero-title">Full-stack PHP developer <span class="stack">Laravel, Vue 3, TypeScript</span></h1>
+      <p class="value">I build the parts of a product that are not allowed to fail: <b>integrations with external APIs</b>,
+        <b>queue pipelines</b> that survive retries and partial failures, and <b>fast Vue 3 interfaces</b> on top.
+        For the last year I owned two production B2B platforms end to end.</p>
+      <ul class="ctas">
+        <li><a class="btn primary" href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
+        <li><a class="btn" href="https://t.me/CaptainAlexxx">Telegram</a></li>
+        <li><a class="btn" href="https://github.com/CaptainAlexxxx">GitHub</a></li>
+        <li><a class="btn" href="https://www.linkedin.com/in/oleksii-ilienko-laravel">LinkedIn</a></li>
+        <li><a class="btn" href="CV_Oleksii_Ilienko.pdf" download>Download CV <span class="k">PDF</span></a></li>
+      </ul>
+      <p class="fine">3 years of commercial Laravel and Vue 3. English B2, Ukrainian native.</p>
+    </div>
+
+    <aside class="ledger" aria-labelledby="proof-title">
+      <h2 id="proof-title">Measured in production</h2>
+      <dl>
+        <div class="row"><dt>10<small>x</small></dt><dd><b>faster background jobs</b>5-10 s down to 0.5-1 s per job</dd></div>
+        <div class="row"><dt>15<small>s</small>&#8202;&rarr;&#8202;1<small>s</small></dt><dd><b>KPI dashboard load</b>N+1 queries replaced with aggregates</dd></div>
+        <div class="row"><dt>7</dt><dd><b>systems integrated</b>ERP, warehouse, customs API, fiscal service and more</dd></div>
+        <div class="row"><dt>10M<small>+</small></dt><dd><b>registered users</b>NotAI Telegram Mini App, game part and backend</dd></div>
+      </dl>
+    </aside>
   </div>
 </section>
 
-<nav class="manifest">
+<!-- work -->
+<section class="sec" id="work" aria-labelledby="work-title">
   <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">01 / Selected work</span>
+      <h2 id="work-title">Two production platforms I owned</h2>
+      <p>PSP Express, a customs clearance and logistics company, Jul 2025 to Aug 2026. A two-person engineering team: me and the Head of Engineering, who reviewed my code.</p>
+    </div>
+
+    <!-- ProCargo -->
+    <article class="project" id="procargo" aria-labelledby="procargo-title">
+      <div class="p-head"><h3 id="procargo-title">ProCargo</h3><span class="flag">Closed source</span></div>
+      <p class="oneliner">B2B platform for customs declarations and shipment tracking. I took it over as legacy and became its main developer.</p>
+      <ul class="spec">
+        <li><b>Role</b>Owner, backend and frontend</li>
+        <li><b>Stack</b>Laravel 10, Inertia, Vue 3, TypeScript</li>
+        <li><b>Commits</b>~70% of 1,000+</li>
+        <li><b>Period</b>2025 to 2026</li>
+      </ul>
+      <div class="p-body">
+        <ul class="outcomes">
+          <li><strong>Background jobs <span class="n">10x faster</span></strong>, from 5-10 s to 0.5-1 s per job, after finding three separate causes.</li>
+          <li><strong>KPI dashboard from <span class="n">15 s to 1 s</span></strong> by removing N+1 queries.</li>
+          <li><strong>Safe retries over a non-idempotent customs API</strong>: no duplicate shipments, no track number assigned twice.</li>
+          <li><strong>Frontend rebuilt on Vue 3 and TypeScript</strong>, with a component library, light and dark themes and <span class="n">two full redesigns</span>.</li>
+          <li><strong>Two legacy PDF helpers</strong> (900+ and 870+ lines) replaced by one service, <span class="n">zero downtime</span>.</li>
+        </ul>
+        <div>
+          <figure class="mb">
+            <img src="images/procargo-registers.jpg" width="1280" height="625" alt="Shipment registers table with filters, statuses and document actions" loading="lazy">
+            <figcaption>Shipment registers, filtered by AWB, track code, manifest, client and depot.</figcaption>
+          </figure>
+          <div class="shots two">
+            <figure>
+              <img src="images/procargo-cash.jpg" width="1280" height="699" alt="Depot cash desk with balance totals and a cash operation form" loading="lazy">
+              <figcaption>Depot cash desk.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/procargo-receipts.jpg" width="1280" height="690" alt="Cashier receipts list with filters by operation type, status and date" loading="lazy">
+              <figcaption>Cashier receipts.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <details class="deep">
+        <summary><span>How it works <span class="hint">engineering detail</span></span></summary>
+        <div class="deep-grid">
+          <div>
+            <h4>Job time, 10x</h4>
+            <p>Three causes: <code>dispatchAfterResponse</code> silently lost jobs under PHP-FPM, so I replaced it with real queued jobs;
+              a <code>Bus::chain</code> carried 192+ serialized job objects, so it now passes shipment IDs; and a cache lock deadlocked, which I fixed.
+              Claude Code first suggested a fix that looked right and was not; I traced the real causes myself.</p>
+          </div>
+          <div>
+            <h4>Non-idempotent customs API</h4>
+            <p>A retried job would create a duplicate at customs. Redis locks per manifest and per shipment, with TTLs tuned to the API timeout and
+              non-blocking acquisition. Per-job retry policies: one try for non-idempotent calls, retries for the rest.
+              <code>lockForUpdate</code> inside a transaction, so parallel workers never hand out one track number twice.</p>
+          </div>
+          <div>
+            <h4>Register pipeline</h4>
+            <p>An Excel register flows through customs, ERP and WMS on <code>Bus::chain</code> and <code>Bus::batch</code>, modelled as a state machine
+              with rollback and a safe restart after a partial failure.</p>
+          </div>
+          <div>
+            <h4>KPI dashboard, 15 s to 1 s</h4>
+            <p>N+1 queries replaced with GROUP BY aggregates, batches of 500 to stay under the MySQL placeholder limit, and details lazy-loaded on demand.</p>
+          </div>
+          <div>
+            <h4>Integrations</h4>
+            <p>Saloon connectors, retries on 5xx only, typed exceptions. Customs over SOAP with encryption and qualified e-signatures, Cashalot fiscal service,
+              Odoo ERP, OMS/WMS. A feature flag between two customs modes gives an instant rollback. Files on AWS S3.</p>
+          </div>
+          <div>
+            <h4>PDF migration and security</h4>
+            <p>The two PDF helpers moved into one service in 15 steps, covered by PHPUnit feature tests. Security pass: fail-closed webhooks,
+              <code>hash_equals</code>, an IP allowlist that ignores <code>X-Forwarded-For</code>, 2FA attempt limits, hashed reset tokens.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <!-- ICS -->
+    <article class="project" id="ics" aria-labelledby="ics-title">
+      <div class="p-head"><h3 id="ics-title">ICS customs portal</h3><span class="flag">Closed source</span></div>
+      <p class="oneliner">Multi-tenant portal between customs brokers and the Ukrainian customs system, holding about a million shipments.</p>
+      <ul class="spec">
+        <li><b>Role</b>Developer, lead from June 2026</li>
+        <li><b>Stack</b>Laravel 12, Filament, Vue 3</li>
+        <li><b>Scale</b>~1M shipments</li>
+        <li><b>Period</b>Aug 2025 to Aug 2026</li>
+      </ul>
+      <div class="p-body">
+        <ul class="outcomes">
+          <li><strong>Qualified e-signing moved into the browser</strong>: the private key <span class="n">never leaves the client</span>. Ran in production.</li>
+          <li><strong>Multi-tenancy on a legacy codebase <span class="n">in a month</span></strong>, with per-tenant branding and <span class="n">6 roles, ~30</span> scoped permissions.</li>
+          <li><strong>Audit of <span class="n">~2M</span> counterparty records</strong> with an entity resolution rule: no false merges, borderline cases go to manual review.</li>
+          <li><strong>Two customs integration modes</strong> behind one feature flag, so a production rollback is a single toggle.</li>
+        </ul>
+        <div>
+          <figure class="mb">
+            <img src="images/ics-dashboard.jpg" width="1280" height="637" alt="Dashboard with quick actions, counters and a shipments chart" loading="lazy">
+            <figcaption>Dashboard: unread customs decisions, counters, 7-day shipment chart.</figcaption>
+          </figure>
+          <div class="shots two">
+            <figure>
+              <img src="images/ics-branding.jpg" width="1280" height="696" alt="Tenant branding settings with colour pickers and logo preview" loading="lazy">
+              <figcaption>Tenant branding with live preview.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/ics-shipments.jpg" width="1280" height="645" alt="Free shipments import table with filters and bulk actions" loading="lazy">
+              <figcaption>Free shipments, bulk actions.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <details class="deep">
+        <summary><span>How it works <span class="hint">engineering detail</span></span></summary>
+        <div class="deep-grid">
+          <div>
+            <h4>Browser e-signing</h4>
+            <p>Signing runs in a Web Worker through IIT EndUser. The server prepares deterministic XML bytes, the browser signs them, the server sends them
+              unchanged, so the signature never breaks. A SHA-256 content key makes sending idempotent, retries never re-sign, and a scheduled,
+              rate-limited queue sends in batches.</p>
+          </div>
+          <div>
+            <h4>Encrypted customs transport</h4>
+            <p>SOAP with an AES-256-CBC payload, an RSA-encrypted session key and qualified e-signatures. The register chain runs as a queue pipeline:
+              send, poll with backoff, parse, feed the result into the next stage.</p>
+          </div>
+          <div>
+            <h4>Entity resolution</h4>
+            <p>Load-test rows found and excluded first. Match keys handle names in any word order, shared consolidator phones and addresses in mixed
+              languages. A false merge is never acceptable, so anything borderline is queued for a person.</p>
+          </div>
+          <div>
+            <h4>Tenancy and access</h4>
+            <p>Each tenant gets its own users, shipment flow and branding: colours, text or SVG logo, live preview applied across the whole interface.
+              RBAC with 6 roles and about 30 scoped permissions.</p>
+          </div>
+        </div>
+      </details>
+    </article>
+
+    <!-- redesign -->
+    <section class="redesign" aria-labelledby="redesign-title">
+      <div class="sec-head">
+        <span class="sec-no">Before and after</span>
+        <h2 id="redesign-title" style="font-size:clamp(24px,3.6vw,34px)">Redesigns: drag to compare</h2>
+      </div>
+      <div class="ba-pair">
+        <div>
+          <div class="ba" data-ba>
+            <div class="ba-frame">
+              <img src="images/redesign-manifest-after.jpg" width="1251" height="865" alt="Customs request screen after the redesign, grouped into cards" loading="lazy">
+              <div class="ba-top"><img src="images/redesign-manifest-before.jpg" width="1251" height="865" alt="Customs request screen before the redesign, with competing button colours" loading="lazy"></div>
+              <div class="ba-handle" aria-hidden="true"></div>
+              <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+            </div>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the customs request screen before and after the redesign">
+          </div>
+          <p class="ba-note"><b>Customs request.</b> Same data, regrouped into cards. Four competing button colours down to one accent; taxes and HS code warnings get their own block.</p>
+        </div>
+        <div>
+          <div class="ba" data-ba>
+            <div class="ba-frame">
+              <img src="images/redesign-roles-after.jpg" width="1280" height="761" alt="Role editor after the redesign, with roles on the left and grouped permissions on the right" loading="lazy">
+              <div class="ba-top"><img src="images/redesign-roles-before.jpg" width="1280" height="761" alt="Permissions list before the redesign, a flat table of raw keys" loading="lazy"></div>
+              <div class="ba-handle" aria-hidden="true"></div>
+              <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+            </div>
+            <input type="range" min="0" max="100" value="50" aria-label="Compare the permission editor before and after the redesign">
+          </div>
+          <p class="ba-note"><b>Permissions.</b> A flat table of raw keys became a role editor: roles on the left, permissions grouped by module with readable labels.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- public site -->
+    <article class="project" id="site" aria-labelledby="site-title" style="margin-top:36px">
+      <div class="p-head"><h3 id="site-title">ProCargo public site</h3><span class="flag">Closed source</span></div>
+      <p class="oneliner">WordPress marketing site that hands logged-in users to the Laravel app without a visible seam.</p>
+      <ul class="spec">
+        <li><b>Role</b>Owner</li>
+        <li><b>Stack</b>WordPress, Laravel</li>
+        <li><b>Built</b>in 2 months, maintained for a year</li>
+      </ul>
+      <div class="p-body stacked">
+        <ul class="outcomes">
+          <li><strong>Learned WordPress and shipped the site <span class="n">in 2 months</span></strong>, then maintained and upgraded it for a year.</li>
+          <li><strong>Shared session with the Laravel app</strong>: a visitor goes from the landing page to a submitted shipment in one flow.</li>
+          <li><strong>Tariff calculator</strong> and pricing tables fed from the application, two languages, both themes.</li>
+        </ul>
+        <div class="shots three">
+          <figure><img src="images/wp-home.jpg" width="1280" height="658" alt="Landing page with hero image and quick cargo actions" loading="lazy"><figcaption>Landing page.</figcaption></figure>
+          <figure><img src="images/wp-tariffs.jpg" width="1280" height="828" alt="Shipping tariffs page with a price calculator" loading="lazy"><figcaption>Tariffs.</figcaption></figure>
+          <figure><img src="images/wp-create-shipment.jpg" width="1280" height="624" alt="Simplified shipment creation form" loading="lazy"><figcaption>New shipment.</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <article class="mini" aria-labelledby="ic-title">
+      <h3 id="ic-title">incident-core</h3>
+      <p class="meta">New service, 2026 · TypeScript frontend, Laravel backend, REST API</p>
+      <p>A service that collects incidents from every company system. Started from scratch, <b>first version shipped in 2 weeks</b>.</p>
+    </article>
+  </div>
+</section>
+
+<!-- how I work -->
+<section class="how" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">02 / How I work</span>
+      <h2 id="how-title">What you get on a team</h2>
+    </div>
     <ol>
-      <li><a href="#procargo"><span>ProCargo</span><span>declarations &amp; tracking</span></a></li>
-      <li><a href="#ics"><span>ICS Gateway</span><span>multi-tenant</span></a></li>
-      <li><a href="#site"><span>Public site</span><span>WordPress + Laravel</span></a></li>
-      <li><a href="#bot"><span>Support bot</span><span>open source</span></a></li>
-      <li><a href="#more"><span>More work</span><span>NotAI, TypeScript</span></a></li>
+      <li>
+        <h3><span>A</span>Ownership end to end</h3>
+        <p>Schema, queues, API, interface, release. I took over a legacy product and became the developer who knows every part of it.</p>
+      </li>
+      <li>
+        <h3><span>B</span>Reliability by default</h3>
+        <p>I assume the other side will time out, retry and fail halfway, and design for it.</p>
+        <p class="tags">idempotency keys · Redis locks · lockForUpdate · transactional outbox · state machines · fail-closed webhooks</p>
+      </li>
+      <li>
+        <h3><span>C</span>AI-assisted, human-owned</h3>
+        <p>Claude Code every day, with role-based subagents to plan, implement, test and review. It makes me faster; the judgment stays mine, and I never merge a diff I don't understand.</p>
+      </li>
+      <li>
+        <h3><span>D</span>Fast to learn</h3>
+        <p>Laravel from zero to production tasks in about a week at Prof-IT. WordPress learned and a public site shipped in two months.</p>
+      </li>
     </ol>
   </div>
-</nav>
-
-<main class="wrap">
-
-  <!-- ================= PROCARGO ================= -->
-  <section class="project" id="procargo">
-    <h2>ProCargo <span class="tag-closed">closed source</span></h2>
-    <div class="specline">
-      <div><b>Role</b>: owner, backend + frontend</div>
-      <div><b>Stack</b>: Laravel 10, Inertia, Vue 3, TypeScript</div>
-      <div><b>Period</b>: 2025-2026</div>
-      <div><b>Reported to</b>: Head of Engineering</div>
-    </div>
-
-    <p class="intro">I took ProCargo over as legacy and became its main developer, about 70% of its 1,000+
-      commits. A platform for customs declarations and shipment tracking: registers, parcels, depot cash
-      desks, document generation, and integrations with the Ukrainian customs API, the Cashalot fiscal service,
-      Odoo ERP, the OMS/WMS, the customs gateway and the company websites.</p>
-
-    <ul class="did">
-      <li><b>Rebuilt the frontend on Vue 3 and TypeScript</b>: own component library, composables, data tables
-        and forms, a responsive design system with light and dark themes, localisation. Two full redesigns
-        (compare them below in ICS).</li>
-      <li><b>Cut background job execution time roughly 10x.</b> Replaced <code class="mono">dispatchAfterResponse</code>,
-        which silently failed under Nginx/PHP-FPM, removed payload bloat from <code class="mono">Bus::chain</code>
-        by passing shipment IDs instead of 192+ serialized job objects, and fixed a cache-lock deadlock.</li>
-      <li><b>Made shipment creation safe over a non-idempotent customs API.</b> A retried job would create a
-        duplicate at customs, so I added Redis locks per manifest and per shipment with TTLs tuned to the API
-        timeout, non-blocking acquisition, and per-job retry policies: one try for non-idempotent jobs, retries
-        for the rest.</li>
-      <li><b>Turned the register pipeline into a state machine.</b> An Excel register flows through
-        <code class="mono">Bus::chain</code> and <code class="mono">Bus::batch</code> (manifest, shipments,
-        ERP, OMS) with rollback on failure and safe re-entry for partially processed registers.</li>
-      <li><b>Made track-number assignment race-free</b> with <code class="mono">lockForUpdate</code> inside a
-        transaction, so parallel workers never hand out the same number twice.</li>
-      <li><b>Ran a security hardening pass</b>: fail-closed webhooks, <code class="mono">hash_equals</code> for
-        secrets, an IP allowlist that ignores <code class="mono">X-Forwarded-For</code>, 2FA attempt limits,
-        hashed reset tokens and host validation in reset links.</li>
-      <li><b>Removed N+1 queries in the KPI dashboard</b> with GROUP BY aggregates, batches of 500 to stay under
-        MySQL's placeholder limit, and lazy-loaded details: report load time down two orders of magnitude.</li>
-      <li><b>Rewrote a core service from scratch</b> after years of accumulated nested conditionals, and
-        consolidated two legacy PDF helpers (900+ and 870+ lines) into one service through a staged 15-step
-        migration, with no production downtime.</li>
-      <li><b>Built the integrations</b>: customs API over SOAP with qualified e-signatures, Cashalot, ERP and
-        OMS/WMS, plus a feature flag switching between two customs modes for instant rollback in production.</li>
-    </ul>
-
-    <figure>
-      <img src="images/procargo-registers.jpg" alt="Shipment registers table with filters, statuses and document actions" loading="lazy">
-      <figcaption>Shipment registers: 2 064 records, filtered by AWB, track code, manifest, client and depot.</figcaption>
-    </figure>
-
-    <div class="grid2">
-      <figure>
-        <img src="images/procargo-cash.jpg" alt="Depot cash desk with balance totals and a cash operation form" loading="lazy">
-        <figcaption>Depot cash desk: received, issued, current balance.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/procargo-receipts.jpg" alt="Cashier receipts list with filters by operation type, status and date" loading="lazy">
-        <figcaption>Cashier receipts, filtered by type, status and period.</figcaption>
-      </figure>
-    </div>
-
-    <figure style="margin-top:26px">
-      <img src="images/procargo-permissions.jpg" alt="Permission matrix with granular permission keys per module" loading="lazy">
-      <figcaption>Role editor: granular permissions per module (own / managed / all scopes).</figcaption>
-    </figure>
-
 </section>
 
-  <!-- ================= ICS ================= -->
-  <section class="project" id="ics">
-    <h2>ICS customs portal <span class="tag-closed">closed source</span></h2>
-    <div class="specline">
-      <div><b>Role</b>: team project, led it in its final months</div>
-      <div><b>Stack</b>: Laravel 12, Filament, Vue 3</div>
-      <div><b>Period</b>: 2025-2026</div>
-      <div><b>Scope</b>: multi-tenant SaaS</div>
+<!-- earlier -->
+<section class="sec" id="earlier" aria-labelledby="earlier-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">03 / Earlier</span>
+      <h2 id="earlier-title">How I got into Laravel</h2>
     </div>
-
-    <p class="intro">A portal between brokers and the Ukrainian customs system, holding about a million
-      shipments. Each tenant gets an isolated workspace with its own branding, users and shipment flow.</p>
-
-    <ul class="did">
-      <li><b>Moved qualified e-signing from the server to the user's browser.</b> The private key no longer sits
-        on the server: signing runs in a Web Worker through IIT EndUser. The server prepares deterministic XML
-        bytes, the browser signs them, the server sends them. The XML is never rebuilt, so the signature never
-        breaks. Idempotency through a SHA-256 content key, retries without re-signing, batched sending on a
-        schedule to respect rate limits. Ran in production.</li>
-      <li><b>Automated the customs register chain 30.1 → 31.1 → 32.1.</b> Encrypted SOAP transport (AES-256-CBC
-        payload, RSA session key, ZIP containers), then a queue pipeline: send, poll with backoff, parse the
-        response, feed its data into the next stage. Operators no longer push each step by hand.</li>
-      <li><b>Audited ~2M counterparty records and designed entity resolution.</b> Found and excluded ~250k rows
-        of load-test data first, then built match keys for names in arbitrary order, shared consolidator
-        phones and addresses in mixed languages. The rule: a false merge is never acceptable, anything
-        borderline goes to manual review.</li>
-      <li><b>Designed multi-tenancy on a legacy codebase in a month</b>, with per-tenant branding: brand and
-        accent colours, text or SVG logo, live preview, applied across the whole interface.</li>
-      <li><b>Connected to six company systems</b>: Odoo ERP, OMS/WMS, ProCargo, the company site, the customs
-        gateway and incident-core.</li>
-      <li><b>Two integration modes behind a feature flag</b>: through the gateway, or direct submission with a
-        qualified e-signature. Switching takes one toggle, which made production rollback instant.</li>
-      <li><b>Import and export of shipment registers</b>, project assembly from free shipments, and customs
-        decision handling, with refusals and requirements surfaced on the dashboard.</li>
-      <li><b>Full light and dark themes, Ukrainian and English</b> across every screen, switchable from the
-        header and remembered per user.</li>
-    </ul>
-
-    <div class="grid2">
-      <figure>
-        <img src="images/ics-dashboard.jpg" alt="Dashboard with quick actions, counters and a shipments chart" loading="lazy">
-        <figcaption>Dashboard: unread customs decisions, counters, 7-day shipment chart.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/ics-branding.jpg" alt="Tenant branding settings with colour pickers and logo preview" loading="lazy">
-        <figcaption>Tenant branding: colours, logo type, live preview.</figcaption>
-      </figure>
-    </div>
-
-    <figure style="margin-top:26px">
-      <img src="images/ics-shipments.jpg" alt="Free shipments import table with filters and bulk actions" loading="lazy">
-      <figcaption>Free shipments: bulk selection, combining into a project, OMS and customs status columns.</figcaption>
-    </figure>
-
-    <h3 class="mono" style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:38px 0 14px">
-      Redesign: drag to compare</h3>
-
-    <div class="ba" data-ba>
-      <div class="ba-frame">
-        <img src="images/redesign-manifest-after.jpg" alt="Customs request screen after the redesign, grouped into cards">
-        <div class="ba-top"><img src="images/redesign-manifest-before.jpg" alt="Customs request screen before the redesign, with competing button colours"></div>
-        <div class="ba-handle"></div>
-        <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+    <div class="story">
+      <div class="quote">
+        <p class="lab">Prof-IT, outsourcing, Jan 2023 to Apr 2025</p>
+        <p class="big">I came in for one freelance order. The CTO liked the result and hired me full-time.</p>
+        <ol class="timeline">
+          <li><b>Week 1</b><span>NotAI prototype built as a freelance order.</span></li>
+          <li><b>1-2 months</b><span>In production: Unity WebGL game, TypeScript integration with Telegram, Laravel backend, with a PM and two QA.</span></li>
+          <li><b>Hired</b><span>Asked to learn Laravel. Production tasks within a week, confident middle-level work within about two months.</span></li>
+          <li><b>After</b><span>Internal CRM and ERP on Laravel, Vue 3, PostgreSQL, Docker. A heavy report cut from 2.5 s to 1 s.</span></li>
+        </ol>
       </div>
-      <input type="range" min="0" max="100" value="50" aria-label="Compare the customs request screen before and after the redesign">
-    </div>
-    <p class="ba-note">Customs request screen. Same data, regrouped into cards: request history out of the middle of the form, four competing button colours down to one accent, taxes and HS-code warnings in their own block.</p>
-
-    <div class="ba" data-ba>
-      <div class="ba-frame">
-        <img src="images/redesign-roles-after.jpg" alt="Role editor after the redesign, with roles on the left and grouped permissions on the right">
-        <div class="ba-top"><img src="images/redesign-roles-before.jpg" alt="Permissions list before the redesign, a flat table of raw keys"></div>
-        <div class="ba-handle"></div>
-        <span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+      <div class="small-cards">
+        <article class="mini" aria-labelledby="notai-title">
+          <h3 id="notai-title">NotAI, 10M+ registered users</h3>
+          <p class="meta">Client project at Prof-IT · Telegram Mini App</p>
+          <p>Built the game part of a public Telegram Mini App: the data model and background processing for a large concurrent audience.
+            <a href="https://www.kucoin.com/learn/trading/what-is-notai-telegram-bot-and-how-to-claim-its-airdrop">About the app</a></p>
+        </article>
+        <article class="mini" aria-labelledby="sun-title">
+          <h3 id="sun-title">Country Balls: Orc Destroyer</h3>
+          <p class="meta">Side project · SunLab Games, co-founder · Unity, C# · 2022 to 2023</p>
+          <p>An Android game from a two-person indie studio, about 5,000 installs with no paid marketing.
+            <a href="https://apkpure.com/country-balls-orc-destroyer/com.SunlabGames.OrcDestroyer">On APKPure</a></p>
+        </article>
       </div>
-      <input type="range" min="0" max="100" value="50" aria-label="Compare the permission editor before and after the redesign">
     </div>
-    <p class="ba-note">Permissions. A flat table of raw keys with a per-row Edit button became a role editor: roles on the left, permissions grouped by module with readable labels and their keys underneath, and a count per group.</p>
-
-    <p class="ba-note">Both pairs are the light theme, the screenshots above are the same product in dark.</p>
+  </div>
 </section>
 
-  <!-- ================= SITE ================= -->
-  <section class="project" id="site">
-    <h2>ProCargo public site <span class="tag-closed">closed source</span></h2>
-    <div class="specline">
-      <div><b>Role</b>: owner, front end + integration</div>
-      <div><b>Stack</b>: WordPress + Laravel</div>
-      <div><b>Period</b>: 2025</div>
-      <div><b>Scope</b>: marketing + app entry</div>
+<!-- open source -->
+<section class="sec" id="oss" aria-labelledby="oss-title" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">04 / Open source</span>
+      <h2 id="oss-title">Code you can read</h2>
+      <p>All three repositories have green CI.</p>
     </div>
+    <div class="repos">
+      <article class="repo flagship" aria-labelledby="r1">
+        <div class="flag-body">
+          <div>
+            <div class="top"><h3 id="r1">laravel-telegram-helpdesk</h3><span class="badge">Flagship</span></div>
+            <p>A Telegram support desk built for PSP Express and published with the company's permission, company data removed.
+              Every request becomes a ticket thread in an operator forum group.</p>
+            <ul class="spec">
+              <li>Laravel 12</li><li>Nutgram</li><li>Sanctum REST API</li>
+            </ul>
+            <ul class="outcomes" style="margin-bottom:18px">
+              <li>Ticket threads, broadcasts, 1-5 satisfaction rating.</li>
+              <li>Working schedule with holiday overrides.</li>
+              <li>Webhook secret and update deduplication.</li>
+            </ul>
+            <a class="go" href="https://github.com/CaptainAlexxxx/laravel-telegram-helpdesk">View on GitHub</a>
+          </div>
+          <div class="shots phones">
+            <figure><img src="images/bot-ticket.jpg" width="490" height="593" alt="Ticket card in the operator group and the closing confirmation" loading="lazy"><figcaption>Ticket card.</figcaption></figure>
+            <figure><img src="images/bot-broadcast.jpg" width="451" height="805" alt="Three-step broadcast wizard in Telegram" loading="lazy"><figcaption>Broadcast wizard.</figcaption></figure>
+            <figure><img src="images/bot-schedule.jpg" width="459" height="651" alt="Working schedule management and support rating buttons" loading="lazy"><figcaption>Schedule and rating.</figcaption></figure>
+          </div>
+        </div>
+      </article>
+      <article class="repo" aria-labelledby="r2">
+        <div class="top"><h3 id="r2">laravel-ephemeral-files</h3></div>
+        <p>Files that expire after 24 hours, with deletion notices sent through a transactional outbox and a MySQL race test in CI. A test assignment that required documenting AI usage.</p>
+        <ul class="spec"><li>Laravel 13</li><li>PHP 8.4</li><li>RabbitMQ</li><li>Docker Compose</li></ul>
+        <a class="go" href="https://github.com/CaptainAlexxxx/laravel-ephemeral-files">View on GitHub</a>
+      </article>
+      <article class="repo" aria-labelledby="r3">
+        <div class="top"><h3 id="r3">n5deal-marketplace-prototype</h3></div>
+        <p>Marketplace prototype with three roles, faceted search, fit scoring and moderation. A test assignment.</p>
+        <ul class="spec"><li>Next.js 15</li><li>TypeScript</li><li>Prisma</li><li>Vitest</li></ul>
+        <a class="go" href="https://github.com/CaptainAlexxxx/n5deal-marketplace-prototype">View on GitHub</a>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <p class="intro">The public site runs on WordPress so the team can edit content without a developer, while
-      logged-in users move into the Laravel application without noticing the seam: shared session, shared data,
-      one visual language.</p>
-
-    <ul class="did">
-      <li><b>Learned WordPress and built the front end from scratch in two months</b>, including a tariff
-        calculator and country-by-country pricing tables fed from the application.</li>
-      <li><b>Kept shipment creation inside the same flow</b>, so a visitor can go from the landing page to a
-        submitted shipment without a context switch.</li>
-      <li><b>Bilingual content and both themes</b>: Ukrainian and English, light and dark, consistent
-        across the site and the application.</li>
+<!-- contact -->
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <h2 id="contact-title">Looking for a Laravel and Vue developer?</h2>
+    <p>Available now for remote work, full-time or on a B2B contract. Middle or strong middle roles, backend or full-stack. References on request.</p>
+    <ul class="ctas">
+      <li><a class="btn primary" href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
+      <li><a class="btn" href="https://t.me/CaptainAlexxx">Telegram</a></li>
+      <li><a class="btn" href="https://github.com/CaptainAlexxxx">GitHub</a></li>
+      <li><a class="btn" href="https://www.linkedin.com/in/oleksii-ilienko-laravel">LinkedIn</a></li>
     </ul>
-
-    <div class="grid3">
-      <figure>
-        <img src="images/wp-home.jpg" alt="Landing page with hero image and quick cargo actions" loading="lazy">
-        <figcaption>Landing page.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/wp-tariffs.jpg" alt="Shipping tariffs page with a price calculator" loading="lazy">
-        <figcaption>Tariffs and calculator.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/wp-create-shipment.jpg" alt="Simplified shipment creation form" loading="lazy">
-        <figcaption>Shipment creation.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ================= BOT ================= -->
-  <section class="project" id="bot">
-    <h2>Telegram support bot
-      <a class="tag-open" href="https://github.com/CaptainAlexxxx/laravel-telegram-helpdesk">source on GitHub</a></h2>
-    <div class="specline">
-      <div><b>Role</b>: author</div>
-      <div><b>Stack</b>: Laravel 12, Nutgram</div>
-      <div><b>Period</b>: 2026</div>
-      <div><b>Scope</b>: internal support desk</div>
-    </div>
-
-    <p class="intro">Support used to live in a shared chat where requests were lost. The bot turns every request
-      into a tracked ticket in an operator group, with a working schedule, broadcasts and a satisfaction score.</p>
-
-    <ul class="did">
-      <li><b>Ticket lifecycle</b>: a request opens a thread in the operator group with the client's data
-        attached; either side can close it, and the client is then asked to rate the support from 1 to 5.</li>
-      <li><b>Multi-step broadcast wizard</b>: recipient group, message with optional media, date and time, then
-        a preview before scheduling. Cancellable at any step.</li>
-      <li><b>Working schedule</b>: weekday hours plus date overrides for holidays, so out-of-hours requests get
-        an honest answer instead of silence.</li>
-    </ul>
-
-    <div class="grid3 phone">
-      <figure>
-        <img src="images/bot-ticket.jpg" alt="Ticket card in the operator group and the closing confirmation" loading="lazy">
-        <figcaption>Ticket card in the operator group, and closing.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/bot-broadcast.jpg" alt="Three-step broadcast wizard in Telegram" loading="lazy">
-        <figcaption>Broadcast wizard: recipients, message, schedule.</figcaption>
-      </figure>
-      <figure>
-        <img src="images/bot-schedule.jpg" alt="Working schedule management and support rating buttons" loading="lazy">
-        <figcaption>Schedule editor, and the 1-5 satisfaction score.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ================= MORE ================= -->
-  <section class="project" id="more">
-    <h2>More work</h2>
-    <div class="specline">
-      <div><b>Scope</b>: earlier jobs and side projects</div>
-      <div><b>Stack</b>: PHP, TypeScript, C#</div>
-    </div>
-
-    <ul class="did">
-      <li><b>NotAI, Prof-IT (2024).</b> Built the game part of a client Telegram Mini App with 10M+ registered
-        users: Unity WebGL game, TypeScript integration with Telegram, Laravel backend. First commit to public
-        release in two months, shipped with a PM and two QA engineers. The stack also included Vue 3, PostgreSQL and Docker. Data model and background processing
-        built for constant short requests from a large concurrent audience. The product is no longer live.</li>
-      <li><b>incident-core (2026, TypeScript).</b> A new service consolidating incidents from all company
-        systems. I started it from scratch and shipped the first version in two weeks: TypeScript frontend,
-        Laravel backend, REST API. The company closed before the second version.</li>
-      <li><b><a href="https://github.com/CaptainAlexxxx/laravel-ephemeral-files">laravel-ephemeral-files</a></b>:
-        Laravel 13, PHP 8.4, RabbitMQ, Docker Compose. Files expire after 24 hours; every deletion writes a
-        notice to a transactional outbox, a scheduled relay publishes it to RabbitMQ. Feature tests, including a
-        MySQL race test, run in GitHub Actions.</li>
-      <li><b><a href="https://github.com/CaptainAlexxxx/n5deal-marketplace-prototype">n5deal marketplace prototype</a></b>:
-        Next.js 15, TypeScript, Prisma. Three roles, faceted search, fit scoring between listings and buyer
-        mandates, moderation with an append-only action log. Unit tests with Vitest in CI.</li>
-      <li><b>Games in Unity / C#.</b> Game development since school, including a released Android game
-        (about 5,000 installs with no paid marketing) built in a two-person team.</li>
-    </ul>
-  </section>
+    <p class="fine">+380 99 143 25 55 · Kyiv, Ukraine · BSc, Igor Sikorsky Kyiv Polytechnic Institute, 2024</p>
+  </div>
+</section>
 
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <p>ProCargo, ICS and the public site are commercial products. The code is closed, the screenshots are from
-      test environments and contain no client data. The support bot is open source.</p>
-    <p>Oleksii Ilienko · <a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a> ·
-       <a href="https://github.com/CaptainAlexxxx">GitHub</a> ·
-       <a href="https://www.linkedin.com/in/oleksii-ilienko-laravel">LinkedIn</a></p>
+    <p>ProCargo, ICS and the public site are commercial products: the code is closed, and the screenshots come from test environments with no client data. The support bot is open source.</p>
+    <p>Oleksii Ilienko · <a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></p>
   </div>
 </footer>
 
 <script>
-document.querySelectorAll('[data-ba]').forEach(function(ba){
+document.querySelectorAll('[data-ba]').forEach(function (ba) {
   var frame = ba.querySelector('.ba-frame');
-  var top   = ba.querySelector('.ba-top');
-  var handle= ba.querySelector('.ba-handle');
+  var top = ba.querySelector('.ba-top');
+  var handle = ba.querySelector('.ba-handle');
   var range = ba.querySelector('input[type=range]');
 
-  function set(pct){
+  function set(pct) {
     pct = Math.max(0, Math.min(100, pct));
     top.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
     handle.style.left = pct + '%';
-    if (range.value != pct) range.value = pct;
+    if (+range.value !== pct) range.value = pct;
   }
-  function fromEvent(e){
+  function fromEvent(e) {
     var r = frame.getBoundingClientRect();
-    var x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
-    set(x / r.width * 100);
+    set((e.clientX - r.left) / r.width * 100);
   }
 
-  range.addEventListener('input', function(){ set(+range.value); });
-
-  var dragging = false;
-  frame.addEventListener('mousedown', function(e){ dragging = true; fromEvent(e); e.preventDefault(); });
-  window.addEventListener('mousemove', function(e){ if (dragging) fromEvent(e); });
-  window.addEventListener('mouseup', function(){ dragging = false; });
-  frame.addEventListener('touchstart', function(e){ fromEvent(e); }, {passive:true});
-  frame.addEventListener('touchmove',  function(e){ fromEvent(e); }, {passive:true});
-
+  range.addEventListener('input', function () { set(+range.value); });
+  frame.addEventListener('pointerdown', function (e) {
+    frame.setPointerCapture(e.pointerId);
+    fromEvent(e);
+  });
+  frame.addEventListener('pointermove', function (e) {
+    if (frame.hasPointerCapture(e.pointerId)) fromEvent(e);
+  });
   set(50);
+});
+
+// Print the engineering detail too.
+window.addEventListener('beforeprint', function () {
+  document.querySelectorAll('details').forEach(function (d) { d.open = true; });
 });
 </script>
 </body>
