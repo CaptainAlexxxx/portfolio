@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oleksii Ilienko — selected work</title>
+<title>Oleksii Ilienko: selected work</title>
 <meta name="description" content="Selected work of a full-stack Laravel, Vue 3 and TypeScript developer: customs clearance, shipment tracking, multi-tenancy, service integrations and legacy refactoring.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +93,7 @@ body{
 .did{margin:0 0 32px; padding:0; list-style:none; max-width:68ch}
 .did li{padding-left:22px; position:relative; margin-bottom:9px}
 .did li::before{
-  content:"—"; position:absolute; left:0; color:var(--accent);
+  content:"-"; position:absolute; left:0; color:var(--accent);
   font-family:"IBM Plex Mono",monospace;
 }
 .did b{font-weight:600}
@@ -172,9 +172,9 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <div class="wrap">
     <p class="role">Oleksii Ilienko · Full-stack developer · Laravel, Vue 3, TypeScript · Kyiv</p>
     <h1>Customs, cargo<br>and the software<br>that moves it.</h1>
-    <p class="lede">Three years of commercial Laravel and Vue 3 with TypeScript. For the last year I owned two
-      production B2B products in customs clearance and logistics end to end: architecture, integrations,
-      interface and releases. We were a two-person team with the Head of Engineering, who reviewed my code. Both products lived in an ecosystem of internal services: ERP,
+    <p class="lede">Three years of commercial Laravel and Vue 3 with TypeScript. For the last year I owned ProCargo and led the ICS
+      customs portal in its final months, both B2B products in customs clearance and logistics: architecture,
+      integrations, interface and releases. We were a two-person team with the Head of Engineering, who reviewed my code. Both products lived in an ecosystem of internal services: ERP,
       warehouse system, customs gateway, incident service. Below is what they actually look like.</p>
     <ul class="contacts">
       <li><a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a></li>
@@ -189,7 +189,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <div class="wrap">
     <ul>
       <li><b>~10×</b><span>faster background job pipeline</span></li>
-      <li><b>7</b><span>systems integrated: ERP, OMS/WMS, customs API…</span></li>
+      <li><b>7</b><span>systems integrated across both products: ERP, OMS/WMS, customs, fiscal…</span></li>
       <li><b>~1M</b><span>shipments in the customs portal</span></li>
       <li><b>10M+</b><span>registered users, NotAI Telegram Mini App</span></li>
     </ul>
@@ -214,13 +214,13 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <section class="project" id="procargo">
     <h2>ProCargo <span class="tag-closed">closed source</span></h2>
     <div class="specline">
-      <div><b>Role</b> — owner, backend + frontend</div>
-      <div><b>Stack</b> — Laravel 10, Inertia, Vue 3, TypeScript</div>
-      <div><b>Period</b> — 2025–2026</div>
-      <div><b>Reported to</b> — Head of Engineering</div>
+      <div><b>Role</b>: owner, backend + frontend</div>
+      <div><b>Stack</b>: Laravel 10, Inertia, Vue 3, TypeScript</div>
+      <div><b>Period</b>: 2025-2026</div>
+      <div><b>Reported to</b>: Head of Engineering</div>
     </div>
 
-    <p class="intro">I took ProCargo over as legacy and became its main developer — about 70% of its 1,000+
+    <p class="intro">I took ProCargo over as legacy and became its main developer, about 70% of its 1,000+
       commits. A platform for customs declarations and shipment tracking: registers, parcels, depot cash
       desks, document generation, and integrations with the Ukrainian customs API, the Cashalot fiscal service,
       Odoo ERP, the OMS/WMS, the customs gateway and the company websites.</p>
@@ -237,31 +237,31 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         timeout, non-blocking acquisition, and per-job retry policies: one try for non-idempotent jobs, retries
         for the rest.</li>
       <li><b>Turned the register pipeline into a state machine.</b> An Excel register flows through
-        <code class="mono">Bus::chain</code> and <code class="mono">Bus::batch</code> — manifest, shipments,
-        ERP, OMS — with rollback on failure and safe re-entry for partially processed registers.</li>
+        <code class="mono">Bus::chain</code> and <code class="mono">Bus::batch</code> (manifest, shipments,
+        ERP, OMS) with rollback on failure and safe re-entry for partially processed registers.</li>
       <li><b>Made track-number assignment race-free</b> with <code class="mono">lockForUpdate</code> inside a
         transaction, so parallel workers never hand out the same number twice.</li>
       <li><b>Ran a security hardening pass</b>: fail-closed webhooks, <code class="mono">hash_equals</code> for
         secrets, an IP allowlist that ignores <code class="mono">X-Forwarded-For</code>, 2FA attempt limits,
         hashed reset tokens and host validation in reset links.</li>
       <li><b>Removed N+1 queries in the KPI dashboard</b> with GROUP BY aggregates, batches of 500 to stay under
-        MySQL's placeholder limit, and lazy-loaded details — report load time down two orders of magnitude.</li>
+        MySQL's placeholder limit, and lazy-loaded details: report load time down two orders of magnitude.</li>
       <li><b>Rewrote a core service from scratch</b> after years of accumulated nested conditionals, and
         consolidated two legacy PDF helpers (900+ and 870+ lines) into one service through a staged 15-step
         migration, with no production downtime.</li>
-      <li><b>Built the integrations</b> — customs API over SOAP with qualified e-signatures, Cashalot, ERP and
-        OMS/WMS — plus a feature flag switching between two customs modes for instant rollback in production.</li>
+      <li><b>Built the integrations</b>: customs API over SOAP with qualified e-signatures, Cashalot, ERP and
+        OMS/WMS, plus a feature flag switching between two customs modes for instant rollback in production.</li>
     </ul>
 
     <figure>
       <img src="images/procargo-registers.jpg" alt="Shipment registers table with filters, statuses and document actions" loading="lazy">
-      <figcaption>Shipment registers — 2 064 records, filtered by AWB, track code, manifest, client and depot.</figcaption>
+      <figcaption>Shipment registers: 2 064 records, filtered by AWB, track code, manifest, client and depot.</figcaption>
     </figure>
 
     <div class="grid2">
       <figure>
         <img src="images/procargo-cash.jpg" alt="Depot cash desk with balance totals and a cash operation form" loading="lazy">
-        <figcaption>Depot cash desk — received, issued, current balance.</figcaption>
+        <figcaption>Depot cash desk: received, issued, current balance.</figcaption>
       </figure>
       <figure>
         <img src="images/procargo-receipts.jpg" alt="Cashier receipts list with filters by operation type, status and date" loading="lazy">
@@ -271,28 +271,28 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 
     <figure style="margin-top:26px">
       <img src="images/procargo-permissions.jpg" alt="Permission matrix with granular permission keys per module" loading="lazy">
-      <figcaption>Role editor — granular permissions per module (own / managed / all scopes).</figcaption>
+      <figcaption>Role editor: granular permissions per module (own / managed / all scopes).</figcaption>
     </figure>
 
 </section>
 
   <!-- ================= ICS ================= -->
   <section class="project" id="ics">
-    <h2>ICS — customs gateway <span class="tag-closed">closed source</span></h2>
+    <h2>ICS customs portal <span class="tag-closed">closed source</span></h2>
     <div class="specline">
-      <div><b>Role</b> — team project, led it in its final months</div>
-      <div><b>Stack</b> — Laravel 12, Filament, Vue 3</div>
-      <div><b>Period</b> — 2025–2026</div>
-      <div><b>Scope</b> — multi-tenant SaaS</div>
+      <div><b>Role</b>: team project, led it in its final months</div>
+      <div><b>Stack</b>: Laravel 12, Filament, Vue 3</div>
+      <div><b>Period</b>: 2025-2026</div>
+      <div><b>Scope</b>: multi-tenant SaaS</div>
     </div>
 
-    <p class="intro">A gateway between brokers and the Ukrainian customs system, holding about a million
+    <p class="intro">A portal between brokers and the Ukrainian customs system, holding about a million
       shipments. Each tenant gets an isolated workspace with its own branding, users and shipment flow.</p>
 
     <ul class="did">
       <li><b>Moved qualified e-signing from the server to the user's browser.</b> The private key no longer sits
         on the server: signing runs in a Web Worker through IIT EndUser. The server prepares deterministic XML
-        bytes, the browser signs them, the server sends them — the XML is never rebuilt, so the signature never
+        bytes, the browser signs them, the server sends them. The XML is never rebuilt, so the signature never
         breaks. Idempotency through a SHA-256 content key, retries without re-signing, batched sending on a
         schedule to respect rate limits. Ran in production.</li>
       <li><b>Automated the customs register chain 30.1 → 31.1 → 32.1.</b> Encrypted SOAP transport (AES-256-CBC
@@ -302,14 +302,14 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
         of load-test data first, then built match keys for names in arbitrary order, shared consolidator
         phones and addresses in mixed languages. The rule: a false merge is never acceptable, anything
         borderline goes to manual review.</li>
-      <li><b>Designed multi-tenancy on a legacy codebase in a month</b>, with per-tenant branding — brand and
+      <li><b>Designed multi-tenancy on a legacy codebase in a month</b>, with per-tenant branding: brand and
         accent colours, text or SVG logo, live preview, applied across the whole interface.</li>
       <li><b>Connected to six company systems</b>: Odoo ERP, OMS/WMS, ProCargo, the company site, the customs
         gateway and incident-core.</li>
       <li><b>Two integration modes behind a feature flag</b>: through the gateway, or direct submission with a
         qualified e-signature. Switching takes one toggle, which made production rollback instant.</li>
       <li><b>Import and export of shipment registers</b>, project assembly from free shipments, and customs
-        decision handling — refusals and requirements surfaced on the dashboard.</li>
+        decision handling, with refusals and requirements surfaced on the dashboard.</li>
       <li><b>Full light and dark themes, Ukrainian and English</b> across every screen, switchable from the
         header and remembered per user.</li>
     </ul>
@@ -317,21 +317,21 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     <div class="grid2">
       <figure>
         <img src="images/ics-dashboard.jpg" alt="Dashboard with quick actions, counters and a shipments chart" loading="lazy">
-        <figcaption>Dashboard — unread customs decisions, counters, 7-day shipment chart.</figcaption>
+        <figcaption>Dashboard: unread customs decisions, counters, 7-day shipment chart.</figcaption>
       </figure>
       <figure>
         <img src="images/ics-branding.jpg" alt="Tenant branding settings with colour pickers and logo preview" loading="lazy">
-        <figcaption>Tenant branding — colours, logo type, live preview.</figcaption>
+        <figcaption>Tenant branding: colours, logo type, live preview.</figcaption>
       </figure>
     </div>
 
     <figure style="margin-top:26px">
       <img src="images/ics-shipments.jpg" alt="Free shipments import table with filters and bulk actions" loading="lazy">
-      <figcaption>Free shipments — bulk selection, combining into a project, OMS and customs status columns.</figcaption>
+      <figcaption>Free shipments: bulk selection, combining into a project, OMS and customs status columns.</figcaption>
     </figure>
 
     <h3 class="mono" style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:38px 0 14px">
-      Redesign — drag to compare</h3>
+      Redesign: drag to compare</h3>
 
     <div class="ba" data-ba>
       <div class="ba-frame">
@@ -355,29 +355,29 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     </div>
     <p class="ba-note">Permissions. A flat table of raw keys with a per-row Edit button became a role editor: roles on the left, permissions grouped by module with readable labels and their keys underneath, and a count per group.</p>
 
-    <p class="ba-note">Both pairs are the light theme — the screenshots above are the same product in dark.</p>
+    <p class="ba-note">Both pairs are the light theme, the screenshots above are the same product in dark.</p>
 </section>
 
   <!-- ================= SITE ================= -->
   <section class="project" id="site">
     <h2>ProCargo public site <span class="tag-closed">closed source</span></h2>
     <div class="specline">
-      <div><b>Role</b> — owner, front end + integration</div>
-      <div><b>Stack</b> — WordPress + Laravel</div>
-      <div><b>Period</b> — 2025</div>
-      <div><b>Scope</b> — marketing + app entry</div>
+      <div><b>Role</b>: owner, front end + integration</div>
+      <div><b>Stack</b>: WordPress + Laravel</div>
+      <div><b>Period</b>: 2025</div>
+      <div><b>Scope</b>: marketing + app entry</div>
     </div>
 
     <p class="intro">The public site runs on WordPress so the team can edit content without a developer, while
-      logged-in users move into the Laravel application without noticing the seam — shared session, shared data,
+      logged-in users move into the Laravel application without noticing the seam: shared session, shared data,
       one visual language.</p>
 
     <ul class="did">
-      <li><b>Built the front end from scratch in two months</b> — my first WordPress project — including a tariff
+      <li><b>Learned WordPress and built the front end from scratch in two months</b>, including a tariff
         calculator and country-by-country pricing tables fed from the application.</li>
       <li><b>Kept shipment creation inside the same flow</b>, so a visitor can go from the landing page to a
         submitted shipment without a context switch.</li>
-      <li><b>Bilingual content and both themes</b> — Ukrainian and English, light and dark, consistent
+      <li><b>Bilingual content and both themes</b>: Ukrainian and English, light and dark, consistent
         across the site and the application.</li>
     </ul>
 
@@ -402,21 +402,21 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
     <h2>Telegram support bot
       <a class="tag-open" href="https://github.com/CaptainAlexxxx/laravel-telegram-helpdesk">source on GitHub</a></h2>
     <div class="specline">
-      <div><b>Role</b> — author</div>
-      <div><b>Stack</b> — Laravel 12, Nutgram</div>
-      <div><b>Period</b> — 2026</div>
-      <div><b>Scope</b> — internal support desk</div>
+      <div><b>Role</b>: author</div>
+      <div><b>Stack</b>: Laravel 12, Nutgram</div>
+      <div><b>Period</b>: 2026</div>
+      <div><b>Scope</b>: internal support desk</div>
     </div>
 
     <p class="intro">Support used to live in a shared chat where requests were lost. The bot turns every request
       into a tracked ticket in an operator group, with a working schedule, broadcasts and a satisfaction score.</p>
 
     <ul class="did">
-      <li><b>Ticket lifecycle</b> — a request opens a thread in the operator group with the client's data
+      <li><b>Ticket lifecycle</b>: a request opens a thread in the operator group with the client's data
         attached; either side can close it, and the client is then asked to rate the support from 1 to 5.</li>
-      <li><b>Multi-step broadcast wizard</b> — recipient group, message with optional media, date and time, then
+      <li><b>Multi-step broadcast wizard</b>: recipient group, message with optional media, date and time, then
         a preview before scheduling. Cancellable at any step.</li>
-      <li><b>Working schedule</b> — weekday hours plus date overrides for holidays, so out-of-hours requests get
+      <li><b>Working schedule</b>: weekday hours plus date overrides for holidays, so out-of-hours requests get
         an honest answer instead of silence.</li>
     </ul>
 
@@ -427,11 +427,11 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
       </figure>
       <figure>
         <img src="images/bot-broadcast.jpg" alt="Three-step broadcast wizard in Telegram" loading="lazy">
-        <figcaption>Broadcast wizard — recipients, message, schedule.</figcaption>
+        <figcaption>Broadcast wizard: recipients, message, schedule.</figcaption>
       </figure>
       <figure>
         <img src="images/bot-schedule.jpg" alt="Working schedule management and support rating buttons" loading="lazy">
-        <figcaption>Schedule editor, and the 1–5 satisfaction score.</figcaption>
+        <figcaption>Schedule editor, and the 1-5 satisfaction score.</figcaption>
       </figure>
     </div>
   </section>
@@ -440,28 +440,27 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
   <section class="project" id="more">
     <h2>More work</h2>
     <div class="specline">
-      <div><b>Scope</b> — earlier jobs and side projects</div>
-      <div><b>Stack</b> — PHP, TypeScript, C#</div>
+      <div><b>Scope</b>: earlier jobs and side projects</div>
+      <div><b>Stack</b>: PHP, TypeScript, C#</div>
     </div>
 
     <ul class="did">
-      <li><b>NotAI, Prof-It (2024).</b> Built the game part of a client Telegram Mini App with 10M+ registered
+      <li><b>NotAI, Prof-IT (2024).</b> Built the game part of a client Telegram Mini App with 10M+ registered
         users: Unity WebGL game, TypeScript integration with Telegram, Laravel backend. First commit to public
-        release in two months, shipped with a PM and two QA engineers. Data model and background processing
-        built for constant short requests from a large concurrent audience. The product is retired and the
-        code was closed, so there are no screenshots.</li>
+        release in two months, shipped with a PM and two QA engineers. The stack also included Vue 3, PostgreSQL and Docker. Data model and background processing
+        built for constant short requests from a large concurrent audience. The product is no longer live.</li>
       <li><b>incident-core (2026, TypeScript).</b> A new service consolidating incidents from all company
         systems. I started it from scratch and shipped the first version in two weeks: TypeScript frontend,
-        Laravel backend, REST API. Development stopped when the company laid off the team.</li>
-      <li><b><a href="https://github.com/CaptainAlexxxx/laravel-ephemeral-files">laravel-ephemeral-files</a></b>
-        — Laravel 13, PHP 8.4, RabbitMQ, Docker Compose. Files expire after 24 hours; every deletion publishes
-        a notification through RabbitMQ inside the delete transaction. Feature tests run in GitHub Actions.</li>
-      <li><b><a href="https://github.com/CaptainAlexxxx/n5deal-marketplace-prototype">n5deal marketplace prototype</a></b>
-        — Next.js 15, TypeScript, Prisma. Three roles, faceted search, fit scoring between listings and buyer
-        mandates, moderation with an append-only action log.</li>
-      <li><b>Games in Unity / C#.</b> A decade of game development before backend, including a released Android
-        game (about 5,000 installs with no paid marketing). Shipping whole systems alone
-        taught me what unmaintainable architecture costs.</li>
+        Laravel backend, REST API. The company closed before the second version.</li>
+      <li><b><a href="https://github.com/CaptainAlexxxx/laravel-ephemeral-files">laravel-ephemeral-files</a></b>:
+        Laravel 13, PHP 8.4, RabbitMQ, Docker Compose. Files expire after 24 hours; every deletion writes a
+        notice to a transactional outbox, a scheduled relay publishes it to RabbitMQ. Feature tests, including a
+        MySQL race test, run in GitHub Actions.</li>
+      <li><b><a href="https://github.com/CaptainAlexxxx/n5deal-marketplace-prototype">n5deal marketplace prototype</a></b>:
+        Next.js 15, TypeScript, Prisma. Three roles, faceted search, fit scoring between listings and buyer
+        mandates, moderation with an append-only action log. Unit tests with Vitest in CI.</li>
+      <li><b>Games in Unity / C#.</b> Game development since school, including a released Android game
+        (about 5,000 installs with no paid marketing) built in a two-person team.</li>
     </ul>
   </section>
 
@@ -469,7 +468,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 
 <footer class="foot">
   <div class="wrap">
-    <p>ProCargo, ICS and the public site are commercial products — the code is closed, the screenshots are from
+    <p>ProCargo, ICS and the public site are commercial products. The code is closed, the screenshots are from
       test environments and contain no client data. The support bot is open source.</p>
     <p>Oleksii Ilienko · <a href="mailto:alexthearts@gmail.com">alexthearts@gmail.com</a> ·
        <a href="https://github.com/CaptainAlexxxx">GitHub</a> ·
